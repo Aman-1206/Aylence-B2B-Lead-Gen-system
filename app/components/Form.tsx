@@ -17,6 +17,8 @@ const companyTypes = [
   "Other",
 ];
 
+const presetCompanyTypes = companyTypes.filter((companyType) => companyType !== "Other");
+
 type FlowStage = "idle" | "preview" | "full";
 
 const initialForm: LeadRequest = {
@@ -42,6 +44,10 @@ export default function Form() {
     () => `${formData.numberOfLeads.toLocaleString()} leads requested`,
     [formData.numberOfLeads],
   );
+  const selectedCompanyTypeOption = presetCompanyTypes.includes(formData.companyType)
+    ? formData.companyType
+    : "Other";
+  const customCompanyType = selectedCompanyTypeOption === "Other" ? formData.companyType : "";
 
   async function fetchPreview(offset = 0) {
     setError(null);
@@ -204,9 +210,12 @@ export default function Form() {
               <span className="text-sm font-medium text-slate-700">Company Type</span>
               <select
                 className="rounded-2xl border border-slate-200 bg-white px-4 py-3 outline-none transition focus:border-teal-500 focus:ring-4 focus:ring-teal-100"
-                value={formData.companyType}
+                value={selectedCompanyTypeOption}
                 onChange={(event) =>
-                  setFormData((current) => ({ ...current, companyType: event.target.value }))
+                  setFormData((current) => ({
+                    ...current,
+                    companyType: event.target.value === "Other" ? "" : event.target.value,
+                  }))
                 }
               >
                 {companyTypes.map((companyType) => (
@@ -216,6 +225,21 @@ export default function Form() {
                 ))}
               </select>
             </label>
+
+            {selectedCompanyTypeOption === "Other" ? (
+              <label className="grid gap-2">
+                <span className="text-sm font-medium text-slate-700">Custom Company Type</span>
+                <input
+                  className="rounded-2xl border border-slate-200 bg-white px-4 py-3 outline-none transition focus:border-teal-500 focus:ring-4 focus:ring-teal-100"
+                  value={customCompanyType}
+                  onChange={(event) =>
+                    setFormData((current) => ({ ...current, companyType: event.target.value }))
+                  }
+                  placeholder="Consulting Firm"
+                  required
+                />
+              </label>
+            ) : null}
 
             <label className="grid gap-2">
               <span className="text-sm font-medium text-slate-700">Location</span>

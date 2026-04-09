@@ -5,12 +5,15 @@ import { isMongoConfigured } from "@/lib/mongodb";
 type DashboardPageProps = {
   searchParams?: Promise<{
     companyType?: string;
+    companyTypeQuery?: string;
   }>;
 };
 
 export default async function DashboardPage({ searchParams }: DashboardPageProps) {
   const params = searchParams ? await searchParams : undefined;
   const selectedCompanyType = params?.companyType?.trim() || "";
+  const companyTypeQuery = params?.companyTypeQuery?.trim() || "";
+  const normalizedCompanyTypeQuery = companyTypeQuery.toLowerCase();
   const mongoConfigured = isMongoConfigured();
   const dashboardData = await getRecentLeadGenerations(10);
   const allGenerations = dashboardData.generations;
@@ -19,9 +22,17 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
   const companyTypes = Array.from(
     new Set(allGenerations.map((generation) => generation.request.companyType).filter(Boolean)),
   ).sort((left, right) => left.localeCompare(right));
-  const generations = selectedCompanyType
-    ? allGenerations.filter((generation) => generation.request.companyType === selectedCompanyType)
-    : allGenerations;
+  const generations = allGenerations.filter((generation) => {
+    const matchesSelectedType = selectedCompanyType
+      ? generation.request.companyType === selectedCompanyType
+      : true;
+    const matchesTypedQuery = normalizedCompanyTypeQuery
+      ? generation.request.companyType.toLowerCase().includes(normalizedCompanyTypeQuery)
+      : true;
+
+    return matchesSelectedType && matchesTypedQuery;
+  });
+  const activeFilterLabel = selectedCompanyType || companyTypeQuery;
 
   return (
     <main className="mx-auto flex min-h-screen w-full max-w-6xl px-4 pb-10 sm:px-6 lg:px-8">
@@ -45,7 +56,7 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
             <div className="grid gap-3 sm:min-w-52">
               <div className="rounded-2xl bg-white/85 p-4 shadow-sm ring-1 ring-black/5">
                 <p className="text-sm text-slate-500">
-                  Saved runs{selectedCompanyType ? ` for ${selectedCompanyType}` : ""}
+                  Saved runs{activeFilterLabel ? ` for ${activeFilterLabel}` : ""}
                 </p>
                 <p className="mt-2 text-3xl font-semibold text-slate-900">{generations.length}</p>
               </div>
@@ -75,6 +86,12 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
                     </option>
                   ))}
                 </select>
+                <input
+                  name="companyTypeQuery"
+                  defaultValue={companyTypeQuery}
+                  placeholder="Or type a custom company type"
+                  className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-teal-500 focus:ring-4 focus:ring-teal-100"
+                />
                 <button
                   type="submit"
                   className="rounded-2xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
@@ -114,8 +131,8 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
 
         {generations.length === 0 ? (
           <section className="rounded-[1.75rem] border border-slate-200 bg-white/85 px-6 py-5 text-slate-700">
-            {selectedCompanyType
-              ? `No saved lead generations found for ${selectedCompanyType}.`
+            {activeFilterLabel
+              ? `No saved lead generations found for ${activeFilterLabel}.`
               : "No saved lead generations yet. Generate a full lead list and it will appear here."}
           </section>
         ) : null}
