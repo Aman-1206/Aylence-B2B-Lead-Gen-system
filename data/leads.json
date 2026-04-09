@@ -1,0 +1,1414 @@
+{
+  "leads": [
+    {
+      "id": "1e2866a5-a4e1-437c-9b7c-ac1081768161",
+      "companyName": "Shivam Gupta",
+      "address": "metro vihar, Delhi, Delhi, IN",
+      "phone": "Phone not available",
+      "email": ""
+    },
+    {
+      "id": "2a391bc9-4cfb-4632-a3a9-865cb820bf8d",
+      "companyName": "Cyber Bazaar",
+      "address": "D-645, Delhi, Delhi, IN",
+      "phone": "+91 87429 39575",
+      "email": ""
+    },
+    {
+      "id": "77ff3d7c-5b12-4dce-9fa4-75baf6dfffa3",
+      "companyName": "Shopperpreneur",
+      "address": "2nd Floor, Block E4, Flat no.30, Delhi, Delhi, IN",
+      "phone": "+91 80764 48740",
+      "email": ""
+    },
+    {
+      "id": "8f23940f-c74d-4cc3-b993-790898b226a3",
+      "companyName": "ONLINE DELHI STORE",
+      "address": "Gali no 5, Phool Bagh Rd, Delhi, Delhi, IN",
+      "phone": "Phone not available",
+      "email": ""
+    },
+    {
+      "id": "f140adce-b5ad-4f8d-a5e6-92e3644faa9e",
+      "companyName": "DADS Marketing",
+      "address": "khno 37/11/1, near, Gali No. 10, Delhi, Delhi, IN",
+      "phone": "+91 98688 96185",
+      "email": ""
+    },
+    {
+      "id": "8d11f48b-7bf1-4a77-b51f-81b3791bc947",
+      "companyName": "Grovention Tech",
+      "address": "13/4, New Delhi, Delhi, Delhi, IN",
+      "phone": "+91 95828 62238",
+      "email": ""
+    },
+    {
+      "id": "a0f6551f-b514-4abd-be47-f8d7c9027a6b",
+      "companyName": "PerfPlus Software Solution",
+      "address": "CRVC+PWR, Farukh Nagar, Haryana, IN",
+      "phone": "Phone not available",
+      "email": ""
+    },
+    {
+      "id": "0d672ea5-6540-4db2-ace9-ad243b4d033e",
+      "companyName": "Incodify",
+      "address": "House no.13, ward, 15, Sohna - Gurgaon Rd, Gurugram, Sohna Rural, Haryana, IN",
+      "phone": "Phone not available",
+      "email": ""
+    },
+    {
+      "id": "83c9edbe-eca4-4c01-8f69-41a6cb3eafa9",
+      "companyName": "ITGenius Computer",
+      "address": "Plot no-313,Hari om Kunj, Phase -4, Gate no -1, Berka, Road, Dhunela, Sohna, Haryana, IN",
+      "phone": "+91 97165 07485",
+      "email": ""
+    },
+    {
+      "id": "d2f7e24f-0ab5-4092-bc9d-a66baa0d5913",
+      "companyName": "Niyajtech - IT Solutions & Digital Services",
+      "address": "IDBI Bank, Basment, opposite Bus stand, Sohna, Haryana, IN",
+      "phone": "Phone not available",
+      "email": ""
+    },
+    {
+      "id": "f2feec97-e079-41d0-bddb-76727afd1b10",
+      "companyName": "Tech Info Services",
+      "address": "Ground & 2nd Floor, Commercial Building, Signature Global Park 2,3, Gurgaon, Haryana, IN",
+      "phone": "+91 70429 29747",
+      "email": ""
+    },
+    {
+      "id": "287fc1ea-8660-4feb-b0b9-58a1eac167b0",
+      "companyName": "WORLD IT TECHNOLOGY",
+      "address": "Near Jindal Public School Friends Colony sohna gurugram Haryana pin code 122103, Sohna, Haryana, IN",
+      "phone": "+91 82782 52626",
+      "email": ""
+    },
+    {
+      "id": "ebc0e4d2-fd3b-4162-8631-c2f0f5ec6d3c",
+      "companyName": "HCAH India - Head Office, Noida",
+      "address": "2nd Floor, Bhutani Technopark, D Tower, Noida, Uttar Pradesh, IN",
+      "phone": "+91 79 6581 5341",
+      "email": ""
+    },
+    {
+      "id": "36798714-ce3b-4712-a554-4a3f41d4eb0e",
+      "companyName": "HARIRAJ HEALTHCARE CENTRE",
+      "address": "tawer Sec 126 noida, QRG TOWERS, Vill-Raipur sec-126 Noida, G.B.Nagar H.No G-03, near Baba Mohanram Mandir, opp. Tapsya tawer&, Noida, Uttar Pradesh, IN",
+      "phone": "+91 99863 02006",
+      "email": ""
+    },
+    {
+      "id": "4391bdad-390f-45df-bb1d-7c274e418222",
+      "companyName": "Diagnowell health care",
+      "address": "Raipur Khadar Main Rd, Noida, Uttar Pradesh, IN",
+      "phone": "+91 88029 38722",
+      "email": ""
+    },
+    {
+      "id": "d9ea31bb-a3bd-4993-afdf-03bbdd2c2fb7",
+      "companyName": "SHEWings HEALTHCARE (HQ)",
+      "address": "4th Floor, Bhutani Technopark, C-403,Tower C, Noida, Uttar Pradesh, IN",
+      "phone": "+91 120 250 2355",
+      "email": ""
+    },
+    {
+      "id": "32f92c74-0ea0-4605-96da-7a309e4c99d2",
+      "companyName": "Flexi Nursing Home Healthcare Private Limited",
+      "address": "31D, Best View Apartments, Noida, Uttar Pradesh, IN",
+      "phone": "+91 77018 69255",
+      "email": ""
+    },
+    {
+      "id": "9b65de8e-cb48-4346-ac98-b3fc7d55d769",
+      "companyName": "Primary Health Care Clinic",
+      "address": "C45, New Delhi, Delhi, IN",
+      "phone": "+91 86302 31864",
+      "email": ""
+    },
+    {
+      "id": "a4fcc62d-ff45-49db-9701-c4f2e192b229",
+      "companyName": "Subodh house",
+      "address": "2W9F+GV5, Campbell Bay, Andaman and Nicobar Islands, IN",
+      "phone": "Phone not available",
+      "email": ""
+    },
+    {
+      "id": "1da9b30b-d541-4dae-bbeb-975dfc9e7b7f",
+      "companyName": "Sudip house",
+      "address": "2W7M+R8P, Great, Andaman and Nicobar Islands, IN",
+      "phone": "Phone not available",
+      "email": ""
+    },
+    {
+      "id": "a1356d41-c05c-422e-80b9-381d40d54e19",
+      "companyName": "Fishermen Colony",
+      "address": "2WFG+6F2, Great, Andaman and Nicobar Islands, IN",
+      "phone": "Phone not available",
+      "email": ""
+    },
+    {
+      "id": "958e8bd1-7452-41c4-86eb-d79dfdb7c047",
+      "companyName": "O Point",
+      "address": "2W7J+F3M, SH2, Bananga, Andaman and Nicobar Islands, IN",
+      "phone": "+91 3192 281 801",
+      "email": ""
+    },
+    {
+      "id": "c354980c-87c2-46d7-acb7-252e44111ece",
+      "companyName": "APWD Quarters- Type III",
+      "address": "2W8J+2CP, Campbell Bay, Andaman and Nicobar Islands, IN",
+      "phone": "Phone not available",
+      "email": ""
+    },
+    {
+      "id": "a2e3c672-258f-4345-8b84-21e34b1463f6",
+      "companyName": "THE PLANET MEDIA",
+      "address": "306, Samanvay Zillion, Gotri - Sevasi Rd, opp. Shaishav School, Vadodara, Gujarat, IN",
+      "phone": "+91 97493 66366",
+      "email": ""
+    },
+    {
+      "id": "1cc33067-5ce7-468f-a637-8c5d266ec1e4",
+      "companyName": "Shri Kunj Associates Real Estate And Finance Company",
+      "address": "Shop no. 10, Badal textile market, Pur Rd, near yes bank, Bhilwara, Rajasthan, IN",
+      "phone": "+91 79879 29123",
+      "email": ""
+    },
+    {
+      "id": "7456353d-2609-44d1-8ccf-feca518908b1",
+      "companyName": "Shreenathji Builders Pvt. Ltd.",
+      "address": "SF 201, 202, 203, 206, Sakar Complex, New VIP Rd, near Super Bakers, Vadodara, Gujarat, IN",
+      "phone": "+91 265 251 3087",
+      "email": ""
+    },
+    {
+      "id": "25177649-1e71-45d7-be5d-70e319e36502",
+      "companyName": "Mahadev construction and Real Estate",
+      "address": "Shubham greens colony, 94, Indore, Madhya Pradesh, IN",
+      "phone": "Phone not available",
+      "email": ""
+    },
+    {
+      "id": "1c96fb5c-1fc2-424a-92cb-4795883239a9",
+      "companyName": "MK Apartment",
+      "address": "Isagad road, opposite Milan garden, near LIC office, Ashoknagar, Madhya Pradesh, IN",
+      "phone": "Phone not available",
+      "email": ""
+    },
+    {
+      "id": "98a881cc-b1f0-4c47-8284-84b851d7b30f",
+      "companyName": "E-Commerce Photography Dubai",
+      "address": "Authoman Building Intersection of Al Khaleej Street - Al Musalla Rd, Dubai, AE",
+      "phone": "+971 56 291 8618",
+      "email": "",
+      "domain": "google.com",
+      "url": "https://www.google.com/maps/search/?api=1&query=E-Commerce%20Photography%20Dubai&query_place_id=ChIJZYykLCFDXz4RbAPAu7PBfVI"
+    },
+    {
+      "id": "35f27054-5bc7-4bbe-b4a0-40bbc5e143a1",
+      "companyName": "E-Commerce Shop",
+      "address": "Dubai, AE",
+      "phone": "+971 52 973 9325",
+      "email": "",
+      "domain": "google.com",
+      "url": "https://www.google.com/maps/search/?api=1&query=E-Commerce%20Shop&query_place_id=ChIJva9mQDJdXz4RxaQ273AMtKU"
+    },
+    {
+      "id": "44b5b0b3-f169-4a97-ad3a-98de41ce40e5",
+      "companyName": "Buytronics",
+      "address": "Hyatt Regency Dubai - Al Khaleej Street Naif - Office 258 - Second Floor, Dubai, AE",
+      "phone": "+971 50 778 7899",
+      "email": "",
+      "domain": "buytronics.ae",
+      "url": "https://buytronics.ae/"
+    },
+    {
+      "id": "706f1a4f-fe31-4d2c-967a-4ac75b8edc69",
+      "companyName": "Easy Commerce General Trading",
+      "address": "Dubai, AE",
+      "phone": "+971 58 590 2277",
+      "email": "",
+      "domain": "easycommercegt.com",
+      "url": "https://easycommercegt.com/"
+    },
+    {
+      "id": "e94cf2c8-6531-4b28-a96e-7ffb8fa123cf",
+      "companyName": "Ecartbasket",
+      "address": "Grill Chilli Restaurant, Empire Plaza - Naif Rd, Dubai, AE",
+      "phone": "+971 55 615 0134",
+      "email": "",
+      "domain": "ecartbasket.com",
+      "url": "https://ecartbasket.com/"
+    },
+    {
+      "id": "1cc14bf1-602e-4f34-8fe3-2a37ed68e811",
+      "companyName": "UNOO",
+      "address": "Al Hudaiba St 17, Satwa, Centro Mall - Shop M1, Dubai, AE",
+      "phone": "+971 4 380 5335",
+      "email": "",
+      "domain": "unoo.ae",
+      "url": "https://unoo.ae/"
+    },
+    {
+      "id": "6a324972-299c-434f-96a9-fc9463d1e621",
+      "companyName": "Social Wave International General Trading FZ-LLc",
+      "address": "57b 8A St, Dubai, AE",
+      "phone": "+971 56 769 8149",
+      "email": "",
+      "domain": "socialwaveinternat.wixsite.com",
+      "url": "https://socialwaveinternat.wixsite.com/socialwaveinternatio"
+    },
+    {
+      "id": "69488921-92ec-41a5-91e7-b836bb6a0786",
+      "companyName": "Shah Emporium LLC",
+      "address": "building 60 21st St, Dubai, AE",
+      "phone": "+971 55 408 1610",
+      "email": "",
+      "domain": "noon.com",
+      "url": "https://www.noon.com/seller/p-128405?link_source=share_btn"
+    },
+    {
+      "id": "ccac4352-c745-4cef-b817-b3d998c35688",
+      "companyName": "Novanestae",
+      "address": "sikka 18B St, Dubai, AE",
+      "phone": "+971 56 875 6151",
+      "email": "",
+      "domain": "novanestae.com",
+      "url": "https://novanestae.com/"
+    },
+    {
+      "id": "378f1c3d-5730-42ed-858e-6ac63d6e8134",
+      "companyName": "LUMINA - Shopify Select Partner & Performance Marketing Agency",
+      "address": "Dubai Trade Center First - Sheikh Zayed Rd, Dubai, AE",
+      "phone": "+971 56 842 6687",
+      "email": "",
+      "domain": "luminacommerce.com",
+      "url": "https://www.luminacommerce.com/"
+    },
+    {
+      "id": "f643b053-b400-4a41-a699-126c029ebea7",
+      "companyName": "OceanFront Urgent Care & Family Medicine",
+      "address": "31236 Palos Verdes Dr W, Rancho Palos Verdes, California, US",
+      "phone": "(310) 544-2121",
+      "email": "",
+      "domain": "palosverdesurgentcare.com",
+      "url": "http://www.palosverdesurgentcare.com/"
+    },
+    {
+      "id": "de96f680-bec2-435a-ac5d-949c2e6ef800",
+      "companyName": "Exer Urgent Care - Rolling Hills Estates",
+      "address": "395 Silver Spur Rd, Rolling Hills Estates, California, US",
+      "phone": "(424) 323-3500",
+      "email": "",
+      "domain": "exerurgentcare.com",
+      "url": "https://exerurgentcare.com/urgent-care-rolling-hills-estates/"
+    },
+    {
+      "id": "96a0a429-843e-4823-ab7b-27598d22f02d",
+      "companyName": "Palos Verdes Health Care Center",
+      "address": "26303 S Western Ave, Lomita, California, US",
+      "phone": "(310) 784-5440",
+      "email": "",
+      "domain": "palosverdeshealthcarecenter.com",
+      "url": "http://www.palosverdeshealthcarecenter.com/"
+    },
+    {
+      "id": "d8d25958-dccf-436d-90fe-6a783cab1005",
+      "companyName": "UCLA Health Palos Verdes Primary & Specialty Care",
+      "address": "501 Deep Valley Dr Suite 100, Rolling Hills Estates, California, US",
+      "phone": "(310) 303-3953",
+      "email": "",
+      "domain": "uclahealth.org",
+      "url": "https://www.uclahealth.org/locations/palos-verdes-primary-specialty-care?utm_source=google&utm_medium=Yext"
+    },
+    {
+      "id": "93dc3737-5f0b-48d3-861c-7bdc0edb58e0",
+      "companyName": "Exer Urgent Care - Rancho Palos Verdes",
+      "address": "28900 S Western Ave, Rancho Palos Verdes, California, US",
+      "phone": "(424) 702-0500",
+      "email": "",
+      "domain": "exerurgentcare.com",
+      "url": "https://exerurgentcare.com/locations_blue/rancho-palos-verdes/"
+    },
+    {
+      "id": "b7bc6653-95a8-4751-a5f1-b750732bba7e",
+      "companyName": "sherbert's shack",
+      "address": "Alaska, US",
+      "phone": "Phone not available",
+      "email": "",
+      "domain": "google.com",
+      "url": "https://www.google.com/maps/search/?api=1&query=sherbert's%20shack&query_place_id=ChIJm30xJR0B2VAR7eKGCqCsHao"
+    },
+    {
+      "id": "e4281c46-5c07-41f7-8547-452531715eb5",
+      "companyName": "North Slope Borough Health",
+      "address": "1235 Airport Rd, Wainwright, Alaska, US",
+      "phone": "(907) 763-2714",
+      "email": "",
+      "domain": "google.com",
+      "url": "https://www.google.com/maps/search/?api=1&query=North%20Slope%20Borough%20Health&query_place_id=ChIJ9e8rnXtuxFARPPCPmotaDUw"
+    },
+    {
+      "id": "4f839f3f-1d35-46f2-b6e6-134afd152406",
+      "companyName": "Still Well Med Spa",
+      "address": "45 McClean Ave, Staten Island, New York, US",
+      "phone": "(718) 448-6373",
+      "email": "",
+      "domain": "stillwellmed.com",
+      "url": "http://stillwellmed.com/?utm_source=gbp&utm_medium=organic"
+    },
+    {
+      "id": "86dad939-7cc8-45ad-9a42-cb0b9d646e75",
+      "companyName": "Dr. Gayathri Gara MD",
+      "address": "174 Lily Pond Ave, Staten Island, New York, US",
+      "phone": "(718) 727-7935",
+      "email": "",
+      "domain": "northwell.edu",
+      "url": "https://www.northwell.edu/find-care/find-a-doctor/dr-gayathri-gara-md-11366508"
+    },
+    {
+      "id": "e4dcdf3c-713f-4253-a0c8-a8cb21d03b30",
+      "companyName": "Resilience Health Systems",
+      "address": "124 McClean Ave, Staten Island, New York, US",
+      "phone": "(718) 876-8080",
+      "email": "",
+      "domain": "resilienceclinic.com",
+      "url": "https://www.resilienceclinic.com/contacts/"
+    },
+    {
+      "id": "20297f3a-733e-401c-96a2-8ae1fa356624",
+      "companyName": "SMAC DIGITAL",
+      "address": "116/230, 2nd floor, Anukampa Point, Shipra Path, Jaipur, Rajasthan, IN",
+      "phone": "+91 98290 69519",
+      "email": "",
+      "domain": "orbyza.com",
+      "url": "https://orbyza.com/"
+    },
+    {
+      "id": "ac6b39a6-0dcc-4724-8711-01c433e7a8b2",
+      "companyName": "The Digital Socialite",
+      "address": "Jaipur, Rajasthan, IN",
+      "phone": "+91 95879 44809",
+      "email": "",
+      "domain": "digitalsocialite.in",
+      "url": "http://digitalsocialite.in/"
+    },
+    {
+      "id": "fe6d931c-4fd4-4206-a597-bf2785776522",
+      "companyName": "Tirupati Media House",
+      "address": "138, Rajendra Path, Jaipur, Rajasthan, IN",
+      "phone": "+91 81079 71575",
+      "email": "",
+      "domain": "tirupatimediahouse.com",
+      "url": "https://www.tirupatimediahouse.com/digital-marketing-company-in-jaipur"
+    },
+    {
+      "id": "89205a6b-07f7-4306-9903-cd754e8d3905",
+      "companyName": "Sage Media: Best Digital Marketing Agency in India",
+      "address": "904, 905, Golden Leaf Apartments, Tonk Rd, Jaipur, Rajasthan, IN",
+      "phone": "+91 73550 04934",
+      "email": "",
+      "domain": "sagemedia.in",
+      "url": "http://www.sagemedia.in/"
+    },
+    {
+      "id": "065b0ee3-a901-413f-9c9d-0bd9a6969587",
+      "companyName": "Adsgrip Consultancy | Best & Top Digital Marketing Agency in Jaipur",
+      "address": "402, Bidla Sons Tower, Ajmer Rd, near Bank of Baroda, Jaipur, Rajasthan, IN",
+      "phone": "+91 78770 60925",
+      "email": "",
+      "domain": "adsgrip.com",
+      "url": "https://adsgrip.com/best-digital-marketing-agency-web-development-company/"
+    },
+    {
+      "id": "2bc6ae54-a13b-484d-ae4d-6a56fa65d2bb",
+      "companyName": "Jainshree Digital | best digital marketing company in indore | social media marketing | business lead generation",
+      "address": "Scheme no 71, 1067, near nakoda chouk, behind ranjeet Hanuman temple, Indore, Madhya Pradesh, IN",
+      "phone": "+91 96174 38100",
+      "email": "",
+      "domain": "jainshreedigital.com",
+      "url": "https://jainshreedigital.com/"
+    },
+    {
+      "id": "68d2275d-cbb4-4b37-837e-4ba43f80015d",
+      "companyName": "ADITDUDE",
+      "address": "Address not available",
+      "phone": "+91 87700 74599",
+      "email": "",
+      "domain": "aditdude.in",
+      "url": "http://aditdude.in/"
+    },
+    {
+      "id": "cccd7056-fcfa-4bde-8838-4e6c9c85e547",
+      "companyName": "Social Shapers - Digital Marketing Agency in Indore",
+      "address": "Indore, Madhya Pradesh, IN",
+      "phone": "+91 91650 23246",
+      "email": "",
+      "domain": "socialshapers.wixstudio.com",
+      "url": "https://socialshapers.wixstudio.com/site"
+    },
+    {
+      "id": "f0781e3c-bfb6-40e3-88ec-69dc5f95954b",
+      "companyName": "Digital Marketing Indore, Digital Marketing Agency Indore, Digital Marketing Company Indore, Reliable Digital Expert",
+      "address": "B-281,Veena Nagar, Sukhliya, Indore, Madhya Pradesh, IN",
+      "phone": "+91 89625 01325",
+      "email": "",
+      "domain": "digitalmarketingindore.com",
+      "url": "http://www.digitalmarketingindore.com/"
+    },
+    {
+      "id": "e0204594-63dc-4ae5-b6d8-7ae13b1a3410",
+      "companyName": "Wassup Bhopal",
+      "address": "BNest, Bhopal Smart City Development Center, near Natraj Petrol Pump, Bhopal, Madhya Pradesh, IN",
+      "phone": "+91 82692 32080",
+      "email": "",
+      "domain": "wassup-bhopal.grexa.site",
+      "url": "https://wassup-bhopal.grexa.site/"
+    },
+    {
+      "id": "6525e81a-4183-4220-a71c-b4d227943f8b",
+      "companyName": "BeginCozy",
+      "address": "8001 Market St, Houston, Texas, US",
+      "phone": "(346) 857-8648",
+      "email": "",
+      "domain": "begincozy.com",
+      "url": "https://begincozy.com/"
+    },
+    {
+      "id": "8e051c28-f85c-4661-bcdd-57c92ebeef4d",
+      "companyName": "1eCommerce Agency",
+      "address": "2100 W Loop S, Houston, Texas, US",
+      "phone": "(281) 899-0073",
+      "email": "",
+      "domain": "1ecommerceagency.com",
+      "url": "https://1ecommerceagency.com/"
+    },
+    {
+      "id": "f421c6ce-31d0-4102-a994-e1998afc5706",
+      "companyName": "Informatics Commerce Inc",
+      "address": "3311 Richmond Ave Suite 102, Houston, Texas, US",
+      "phone": "(281) 547-0687",
+      "email": "",
+      "domain": "informaticscommerce.com",
+      "url": "http://informaticscommerce.com/"
+    },
+    {
+      "id": "4d188d89-9a4d-4ebe-8d5a-be807bd766d1",
+      "companyName": "JMAK Supplies",
+      "address": "1st St #1, Houston, Texas, US",
+      "phone": "Phone not available",
+      "email": "",
+      "domain": "google.com",
+      "url": "https://www.google.com/maps/search/?api=1&query=JMAK%20Supplies&query_place_id=ChIJiaNdTD69QIYRNGYcX4wuoIk"
+    },
+    {
+      "id": "b02203d2-8a94-4325-8d4f-a04d1128e3c3",
+      "companyName": "Relay Distribution - E-Commerce Fulfillment Houston, Texas",
+      "address": "5601 Clinton Dr, Houston, Texas, US",
+      "phone": "Phone not available",
+      "email": "",
+      "domain": "relaydistro.com",
+      "url": "https://www.relaydistro.com/"
+    },
+    {
+      "id": "fa411ed2-9ec7-458b-a662-be54c3ff9449",
+      "companyName": "121eCommerce LLC",
+      "address": "3935 Mayfield Rd, Cleveland Heights, Ohio, US",
+      "phone": "(216) 586-6656",
+      "email": "",
+      "domain": "121ecommerce.com",
+      "url": "https://www.121ecommerce.com/"
+    },
+    {
+      "id": "0df518e1-7994-4781-9ee9-04dc0fd7bcab",
+      "companyName": "Cosmic E-Commerce & Digit-commerce",
+      "address": "11201 Shaker Blvd Suite 202 #185, Cleveland, Ohio, US",
+      "phone": "(216) 440-0897",
+      "email": "",
+      "domain": "google.com",
+      "url": "https://www.google.com/maps/search/?api=1&query=Cosmic%20E-Commerce%20%26%20Digit-commerce&query_place_id=ChIJSeZHDT_7MIgRJ2j54AHy4uo"
+    },
+    {
+      "id": "feb64d5a-ce23-4e65-9643-9eb46f5841be",
+      "companyName": "Focused E-Commerce",
+      "address": "1650 Crossings Pkwy, Westlake, Ohio, US",
+      "phone": "(877) 375-2023",
+      "email": "",
+      "domain": "focused-ec.com",
+      "url": "http://focused-ec.com/"
+    },
+    {
+      "id": "100376ac-c335-49ab-87cb-a1bffe10da0f",
+      "companyName": "Ecommerce Gateway",
+      "address": "Corporate Center, 1515 Woodfield Rd Suite 112, Schaumburg, Illinois, US",
+      "phone": "(224) 520-8428",
+      "email": "",
+      "domain": "google.com",
+      "url": "https://www.google.com/maps/search/?api=1&query=Ecommerce%20Gateway&query_place_id=ChIJMR-_wZWvD4gRQBTM2M6zWPs"
+    },
+    {
+      "id": "512bf3be-3d2e-47b4-bc1a-c9f67a82010e",
+      "companyName": "Focused E-Commerce",
+      "address": "452 West Warner Road, Akron, Ohio, US",
+      "phone": "(877) 375-2023",
+      "email": "",
+      "domain": "focused-ec.com",
+      "url": "http://focused-ec.com/events_manager/locations/firestone-country-club/"
+    },
+    {
+      "id": "42adb0e2-626c-488e-a1e2-8074ccc75b38",
+      "contactName": "",
+      "companyName": "Kreative Digital Media",
+      "address": "Sharjah Media City (Shams), Al Messaned, Al Bataeh, Sharjah, AE",
+      "phone": "+971 52 257 5686",
+      "email": "",
+      "domain": "kdm.ae",
+      "url": "https://www.kdm.ae/",
+      "emailScore": null,
+      "emailStatus": "not_found"
+    },
+    {
+      "id": "364f3494-6fd4-404c-9041-8a5f6a798325",
+      "contactName": "",
+      "companyName": "ENH Marketing - Digital Marketing Agency in Dubai UAE | Social Media | التسويق الرقمي دبي",
+      "address": "Arcade Building - Office No - 207 Metro Station - near Al Garhoud, Dubai, AE",
+      "phone": "+971 4 239 0828",
+      "email": "",
+      "domain": "enhmedia.com",
+      "url": "https://enhmedia.com/",
+      "emailScore": null,
+      "emailStatus": "not_found"
+    },
+    {
+      "id": "d0244e79-32ae-47f4-a236-3152b45b4417",
+      "contactName": "",
+      "companyName": "The Creatives 360",
+      "address": "G191, SPC Sharjah Publishing city, Sharjah, AE",
+      "phone": "+971 50 267 1236",
+      "email": "",
+      "domain": "thecreatives360.com",
+      "url": "https://thecreatives360.com/",
+      "emailScore": null,
+      "emailStatus": "not_found"
+    },
+    {
+      "id": "70e52200-624b-470d-a270-14a36a1cc954",
+      "contactName": "",
+      "companyName": "360 DM l Digital Marketing Agency l 360 DM للتسويق الرقمي",
+      "address": "Mazyed Mall - Tower 2 7th Floor, Abu Dhabi, AE",
+      "phone": "+971 50 698 2265",
+      "email": "",
+      "domain": "360-dm.com",
+      "url": "http://360-dm.com/",
+      "emailScore": null,
+      "emailStatus": "not_found"
+    },
+    {
+      "id": "3a47803e-299a-4f21-89b5-83d817a2095d",
+      "contactName": "",
+      "companyName": "hywa digital branding",
+      "address": "Commercial - Mussafah - Building 207 - 1st Floor - #3 - behind Hashil Garments and Extel Mobile, Abu Dhabi, AE",
+      "phone": "+971 56 796 8963",
+      "email": "",
+      "domain": "google.com",
+      "url": "https://www.google.com/maps/search/?api=1&query=hywa%20digital%20branding&query_place_id=ChIJSQGMHms5Xj4ROqgdDd2Es0M",
+      "emailScore": null,
+      "emailStatus": "not_found"
+    },
+    {
+      "id": "62e9211e-1166-4557-bc7e-fdcaaef4aaaa",
+      "contactName": "",
+      "companyName": "The Flynix | Best Digital Marketing Agency in Fujairah",
+      "address": "Al Qasar Rd, Fujairah, AE",
+      "phone": "+971 50 944 6623",
+      "email": "",
+      "domain": "theflynix.com",
+      "url": "https://theflynix.com/",
+      "emailScore": null,
+      "emailStatus": "not_found"
+    },
+    {
+      "id": "921b4089-822f-4e8c-a2cc-508fc0b9d16b",
+      "contactName": "",
+      "companyName": "Digital Marketing and software Solutions",
+      "address": "Address not available",
+      "phone": "+971 50 705 4626",
+      "email": "",
+      "domain": "google.com",
+      "url": "https://www.google.com/maps/search/?api=1&query=Digital%20Marketing%20and%20software%20Solutions&query_place_id=ChIJ5erJKcFHXj4Rg7YT7QbT-_o",
+      "emailScore": null,
+      "emailStatus": "not_found"
+    },
+    {
+      "id": "aaa666fd-810b-454f-a094-a775f9ad7d77",
+      "contactName": "",
+      "companyName": "The Bull Marketing",
+      "address": "Al - Al Khrais St, Abu Dhabi, AE",
+      "phone": "+971 56 335 0444",
+      "email": "",
+      "domain": "thebull.me",
+      "url": "https://thebull.me/",
+      "emailScore": null,
+      "emailStatus": "not_found"
+    },
+    {
+      "id": "3416bc33-d7f9-494e-bb29-d230b6e8fe31",
+      "contactName": "",
+      "companyName": "The Designer Advertising & Publishing LLC",
+      "address": "Al Mushawir St, Abu Dhabi, AE",
+      "phone": "+971 2 632 3335",
+      "email": "",
+      "domain": "dnauae.ae",
+      "url": "http://www.dnauae.ae/",
+      "emailScore": null,
+      "emailStatus": "not_found"
+    },
+    {
+      "id": "f792cb7f-77e6-4204-b957-ed3f68208077",
+      "contactName": "",
+      "companyName": "Page Ninety Nine Advertising LLC",
+      "address": "Mohammed Bin Zayed City, Office 739, Mazyad Mall, Office Tower 2, PB 37736, Abu Dhabi, AE",
+      "phone": "+971 2 626 1799",
+      "email": "",
+      "domain": "page99group.com",
+      "url": "http://www.page99group.com/",
+      "emailScore": null,
+      "emailStatus": "not_found"
+    },
+    {
+      "id": "8904e46a-e672-4271-aaef-635a50e49d81",
+      "contactName": "",
+      "companyName": "Imprimerie Polyprim",
+      "address": "75 Rue Marguerite de Rochechouart, Paris, FR",
+      "phone": "+33 1 42 80 40 03",
+      "email": "allisonpatz@google.com",
+      "domain": "google.com",
+      "url": "https://www.google.com/maps/search/?api=1&query=Imprimerie%20Polyprim&query_place_id=ChIJ_bV5MQBv5kcR5pqkvF1V7Fk",
+      "emailScore": 100,
+      "emailStatus": "valid"
+    },
+    {
+      "id": "6da796ff-36eb-4fd4-9560-5680c21e863e",
+      "contactName": "",
+      "companyName": "Kempower",
+      "address": "40 Rue du Louvre, Paris, FR",
+      "phone": "Phone not available",
+      "email": "tisha.stansell@kempower.com",
+      "domain": "kempower.com",
+      "url": "https://kempower.com/fr/",
+      "emailScore": 100,
+      "emailStatus": "valid"
+    },
+    {
+      "id": "31fb9d17-7e13-4a81-aa96-15123081806f",
+      "contactName": "",
+      "companyName": "Fort de Luxe",
+      "address": "76 Rue de la Pompe, Paris, FR",
+      "phone": "+33 6 07 55 85 44",
+      "email": "info@fort-deluxe.com",
+      "domain": "fort-deluxe.com",
+      "url": "http://fort-deluxe.com/contacts/",
+      "emailScore": 100,
+      "emailStatus": "valid"
+    },
+    {
+      "id": "6273d1a6-26e6-4080-90a0-660b793550b7",
+      "contactName": "",
+      "companyName": "DELICE DE LA TERRE AFRICAINE (DELT’AF)",
+      "address": "1 Rue de Stockholm, Paris, FR",
+      "phone": "+33 6 67 78 18 55",
+      "email": "allisonpatz@google.com",
+      "domain": "google.com",
+      "url": "https://www.google.com/maps/search/?api=1&query=DELICE%20DE%20LA%20TERRE%20AFRICAINE%20(DELT%E2%80%99AF)&query_place_id=ChIJdV7fIMZv5kcRY1vsmvtx2Yg",
+      "emailScore": 94,
+      "emailStatus": "risky"
+    },
+    {
+      "id": "17c11f1f-a9ec-4e32-af07-cb787e1fe3fc",
+      "contactName": "",
+      "companyName": "Geolean Manufacturing System",
+      "address": "66 Av. des Champs-Élysées, Paris, FR",
+      "phone": "+33 1 40 70 03 33",
+      "email": "",
+      "domain": "geoleanmanufacturingsystem.com",
+      "url": "https://www.geoleanmanufacturingsystem.com/",
+      "emailScore": null,
+      "emailStatus": "not_found"
+    },
+    {
+      "id": "cde1ead7-c444-4bf8-8aac-c94f1ee61760",
+      "contactName": "",
+      "companyName": "Inventec Performance Chemicals",
+      "address": "26 Av. du Petit Parc, Vincennes, FR",
+      "phone": "+33 1 43 98 75 00",
+      "email": "pduchi@inventec.dehon.com",
+      "domain": "inventec.dehon.com",
+      "url": "http://www.inventec.dehon.com/",
+      "emailScore": 100,
+      "emailStatus": "valid"
+    },
+    {
+      "id": "852265d5-0929-4a6b-8cc6-9a90dd232afd",
+      "contactName": "",
+      "companyName": "Groupe Hameur",
+      "address": "48 Rue des Vignerons, Vincennes, FR",
+      "phone": "Phone not available",
+      "email": "support@magimix.com",
+      "domain": "magimix.com",
+      "url": "http://www.magimix.com/",
+      "emailScore": 0,
+      "emailStatus": "invalid"
+    }
+  ],
+  "generations": [
+    {
+      "id": "163e656f-cd5e-403f-b676-ca7ec70a15ab",
+      "createdAt": "2026-04-09T09:20:31.487Z",
+      "request": {
+        "name": "check 3",
+        "companyType": "Manufacturing",
+        "location": "Paris",
+        "numberOfLeads": 7
+      },
+      "requestedCount": 7,
+      "generatedCount": 7,
+      "leads": [
+        {
+          "id": "8904e46a-e672-4271-aaef-635a50e49d81",
+          "contactName": "",
+          "companyName": "Imprimerie Polyprim",
+          "address": "75 Rue Marguerite de Rochechouart, Paris, FR",
+          "phone": "+33 1 42 80 40 03",
+          "email": "allisonpatz@google.com",
+          "domain": "google.com",
+          "url": "https://www.google.com/maps/search/?api=1&query=Imprimerie%20Polyprim&query_place_id=ChIJ_bV5MQBv5kcR5pqkvF1V7Fk",
+          "emailScore": 100,
+          "emailStatus": "valid"
+        },
+        {
+          "id": "6da796ff-36eb-4fd4-9560-5680c21e863e",
+          "contactName": "",
+          "companyName": "Kempower",
+          "address": "40 Rue du Louvre, Paris, FR",
+          "phone": "Phone not available",
+          "email": "tisha.stansell@kempower.com",
+          "domain": "kempower.com",
+          "url": "https://kempower.com/fr/",
+          "emailScore": 100,
+          "emailStatus": "valid"
+        },
+        {
+          "id": "31fb9d17-7e13-4a81-aa96-15123081806f",
+          "contactName": "",
+          "companyName": "Fort de Luxe",
+          "address": "76 Rue de la Pompe, Paris, FR",
+          "phone": "+33 6 07 55 85 44",
+          "email": "info@fort-deluxe.com",
+          "domain": "fort-deluxe.com",
+          "url": "http://fort-deluxe.com/contacts/",
+          "emailScore": 100,
+          "emailStatus": "valid"
+        },
+        {
+          "id": "6273d1a6-26e6-4080-90a0-660b793550b7",
+          "contactName": "",
+          "companyName": "DELICE DE LA TERRE AFRICAINE (DELT’AF)",
+          "address": "1 Rue de Stockholm, Paris, FR",
+          "phone": "+33 6 67 78 18 55",
+          "email": "allisonpatz@google.com",
+          "domain": "google.com",
+          "url": "https://www.google.com/maps/search/?api=1&query=DELICE%20DE%20LA%20TERRE%20AFRICAINE%20(DELT%E2%80%99AF)&query_place_id=ChIJdV7fIMZv5kcRY1vsmvtx2Yg",
+          "emailScore": 94,
+          "emailStatus": "risky"
+        },
+        {
+          "id": "17c11f1f-a9ec-4e32-af07-cb787e1fe3fc",
+          "contactName": "",
+          "companyName": "Geolean Manufacturing System",
+          "address": "66 Av. des Champs-Élysées, Paris, FR",
+          "phone": "+33 1 40 70 03 33",
+          "email": "",
+          "domain": "geoleanmanufacturingsystem.com",
+          "url": "https://www.geoleanmanufacturingsystem.com/",
+          "emailScore": null,
+          "emailStatus": "not_found"
+        },
+        {
+          "id": "cde1ead7-c444-4bf8-8aac-c94f1ee61760",
+          "contactName": "",
+          "companyName": "Inventec Performance Chemicals",
+          "address": "26 Av. du Petit Parc, Vincennes, FR",
+          "phone": "+33 1 43 98 75 00",
+          "email": "pduchi@inventec.dehon.com",
+          "domain": "inventec.dehon.com",
+          "url": "http://www.inventec.dehon.com/",
+          "emailScore": 100,
+          "emailStatus": "valid"
+        },
+        {
+          "id": "852265d5-0929-4a6b-8cc6-9a90dd232afd",
+          "contactName": "",
+          "companyName": "Groupe Hameur",
+          "address": "48 Rue des Vignerons, Vincennes, FR",
+          "phone": "Phone not available",
+          "email": "support@magimix.com",
+          "domain": "magimix.com",
+          "url": "http://www.magimix.com/",
+          "emailScore": 0,
+          "emailStatus": "invalid"
+        }
+      ]
+    },
+    {
+      "id": "519d7788-1271-403f-a4ba-c0c174aa6375",
+      "createdAt": "2026-04-09T09:06:25.852Z",
+      "request": {
+        "name": "check email",
+        "companyType": "Marketing Agency",
+        "location": "UAE",
+        "numberOfLeads": 10
+      },
+      "requestedCount": 10,
+      "generatedCount": 10,
+      "leads": [
+        {
+          "id": "42adb0e2-626c-488e-a1e2-8074ccc75b38",
+          "contactName": "",
+          "companyName": "Kreative Digital Media",
+          "address": "Sharjah Media City (Shams), Al Messaned, Al Bataeh, Sharjah, AE",
+          "phone": "+971 52 257 5686",
+          "email": "",
+          "domain": "kdm.ae",
+          "url": "https://www.kdm.ae/",
+          "emailScore": null,
+          "emailStatus": "not_found"
+        },
+        {
+          "id": "364f3494-6fd4-404c-9041-8a5f6a798325",
+          "contactName": "",
+          "companyName": "ENH Marketing - Digital Marketing Agency in Dubai UAE | Social Media | التسويق الرقمي دبي",
+          "address": "Arcade Building - Office No - 207 Metro Station - near Al Garhoud, Dubai, AE",
+          "phone": "+971 4 239 0828",
+          "email": "",
+          "domain": "enhmedia.com",
+          "url": "https://enhmedia.com/",
+          "emailScore": null,
+          "emailStatus": "not_found"
+        },
+        {
+          "id": "d0244e79-32ae-47f4-a236-3152b45b4417",
+          "contactName": "",
+          "companyName": "The Creatives 360",
+          "address": "G191, SPC Sharjah Publishing city, Sharjah, AE",
+          "phone": "+971 50 267 1236",
+          "email": "",
+          "domain": "thecreatives360.com",
+          "url": "https://thecreatives360.com/",
+          "emailScore": null,
+          "emailStatus": "not_found"
+        },
+        {
+          "id": "70e52200-624b-470d-a270-14a36a1cc954",
+          "contactName": "",
+          "companyName": "360 DM l Digital Marketing Agency l 360 DM للتسويق الرقمي",
+          "address": "Mazyed Mall - Tower 2 7th Floor, Abu Dhabi, AE",
+          "phone": "+971 50 698 2265",
+          "email": "",
+          "domain": "360-dm.com",
+          "url": "http://360-dm.com/",
+          "emailScore": null,
+          "emailStatus": "not_found"
+        },
+        {
+          "id": "3a47803e-299a-4f21-89b5-83d817a2095d",
+          "contactName": "",
+          "companyName": "hywa digital branding",
+          "address": "Commercial - Mussafah - Building 207 - 1st Floor - #3 - behind Hashil Garments and Extel Mobile, Abu Dhabi, AE",
+          "phone": "+971 56 796 8963",
+          "email": "",
+          "domain": "google.com",
+          "url": "https://www.google.com/maps/search/?api=1&query=hywa%20digital%20branding&query_place_id=ChIJSQGMHms5Xj4ROqgdDd2Es0M",
+          "emailScore": null,
+          "emailStatus": "not_found"
+        },
+        {
+          "id": "62e9211e-1166-4557-bc7e-fdcaaef4aaaa",
+          "contactName": "",
+          "companyName": "The Flynix | Best Digital Marketing Agency in Fujairah",
+          "address": "Al Qasar Rd, Fujairah, AE",
+          "phone": "+971 50 944 6623",
+          "email": "",
+          "domain": "theflynix.com",
+          "url": "https://theflynix.com/",
+          "emailScore": null,
+          "emailStatus": "not_found"
+        },
+        {
+          "id": "921b4089-822f-4e8c-a2cc-508fc0b9d16b",
+          "contactName": "",
+          "companyName": "Digital Marketing and software Solutions",
+          "address": "Address not available",
+          "phone": "+971 50 705 4626",
+          "email": "",
+          "domain": "google.com",
+          "url": "https://www.google.com/maps/search/?api=1&query=Digital%20Marketing%20and%20software%20Solutions&query_place_id=ChIJ5erJKcFHXj4Rg7YT7QbT-_o",
+          "emailScore": null,
+          "emailStatus": "not_found"
+        },
+        {
+          "id": "aaa666fd-810b-454f-a094-a775f9ad7d77",
+          "contactName": "",
+          "companyName": "The Bull Marketing",
+          "address": "Al - Al Khrais St, Abu Dhabi, AE",
+          "phone": "+971 56 335 0444",
+          "email": "",
+          "domain": "thebull.me",
+          "url": "https://thebull.me/",
+          "emailScore": null,
+          "emailStatus": "not_found"
+        },
+        {
+          "id": "3416bc33-d7f9-494e-bb29-d230b6e8fe31",
+          "contactName": "",
+          "companyName": "The Designer Advertising & Publishing LLC",
+          "address": "Al Mushawir St, Abu Dhabi, AE",
+          "phone": "+971 2 632 3335",
+          "email": "",
+          "domain": "dnauae.ae",
+          "url": "http://www.dnauae.ae/",
+          "emailScore": null,
+          "emailStatus": "not_found"
+        },
+        {
+          "id": "f792cb7f-77e6-4204-b957-ed3f68208077",
+          "contactName": "",
+          "companyName": "Page Ninety Nine Advertising LLC",
+          "address": "Mohammed Bin Zayed City, Office 739, Mazyad Mall, Office Tower 2, PB 37736, Abu Dhabi, AE",
+          "phone": "+971 2 626 1799",
+          "email": "",
+          "domain": "page99group.com",
+          "url": "http://www.page99group.com/",
+          "emailScore": null,
+          "emailStatus": "not_found"
+        }
+      ]
+    },
+    {
+      "id": "ad1379a9-9788-4ca7-a26f-bb70a6159164",
+      "createdAt": "2026-04-09T08:30:04.389Z",
+      "request": {
+        "name": "aylence",
+        "companyType": "E-commerce",
+        "location": "USA",
+        "numberOfLeads": 10
+      },
+      "requestedCount": 10,
+      "generatedCount": 10,
+      "leads": [
+        {
+          "id": "6525e81a-4183-4220-a71c-b4d227943f8b",
+          "companyName": "BeginCozy",
+          "address": "8001 Market St, Houston, Texas, US",
+          "phone": "(346) 857-8648",
+          "email": "",
+          "domain": "begincozy.com",
+          "url": "https://begincozy.com/"
+        },
+        {
+          "id": "8e051c28-f85c-4661-bcdd-57c92ebeef4d",
+          "companyName": "1eCommerce Agency",
+          "address": "2100 W Loop S, Houston, Texas, US",
+          "phone": "(281) 899-0073",
+          "email": "",
+          "domain": "1ecommerceagency.com",
+          "url": "https://1ecommerceagency.com/"
+        },
+        {
+          "id": "f421c6ce-31d0-4102-a994-e1998afc5706",
+          "companyName": "Informatics Commerce Inc",
+          "address": "3311 Richmond Ave Suite 102, Houston, Texas, US",
+          "phone": "(281) 547-0687",
+          "email": "",
+          "domain": "informaticscommerce.com",
+          "url": "http://informaticscommerce.com/"
+        },
+        {
+          "id": "4d188d89-9a4d-4ebe-8d5a-be807bd766d1",
+          "companyName": "JMAK Supplies",
+          "address": "1st St #1, Houston, Texas, US",
+          "phone": "Phone not available",
+          "email": "",
+          "domain": "google.com",
+          "url": "https://www.google.com/maps/search/?api=1&query=JMAK%20Supplies&query_place_id=ChIJiaNdTD69QIYRNGYcX4wuoIk"
+        },
+        {
+          "id": "b02203d2-8a94-4325-8d4f-a04d1128e3c3",
+          "companyName": "Relay Distribution - E-Commerce Fulfillment Houston, Texas",
+          "address": "5601 Clinton Dr, Houston, Texas, US",
+          "phone": "Phone not available",
+          "email": "",
+          "domain": "relaydistro.com",
+          "url": "https://www.relaydistro.com/"
+        },
+        {
+          "id": "fa411ed2-9ec7-458b-a662-be54c3ff9449",
+          "companyName": "121eCommerce LLC",
+          "address": "3935 Mayfield Rd, Cleveland Heights, Ohio, US",
+          "phone": "(216) 586-6656",
+          "email": "",
+          "domain": "121ecommerce.com",
+          "url": "https://www.121ecommerce.com/"
+        },
+        {
+          "id": "0df518e1-7994-4781-9ee9-04dc0fd7bcab",
+          "companyName": "Cosmic E-Commerce & Digit-commerce",
+          "address": "11201 Shaker Blvd Suite 202 #185, Cleveland, Ohio, US",
+          "phone": "(216) 440-0897",
+          "email": "",
+          "domain": "google.com",
+          "url": "https://www.google.com/maps/search/?api=1&query=Cosmic%20E-Commerce%20%26%20Digit-commerce&query_place_id=ChIJSeZHDT_7MIgRJ2j54AHy4uo"
+        },
+        {
+          "id": "feb64d5a-ce23-4e65-9643-9eb46f5841be",
+          "companyName": "Focused E-Commerce",
+          "address": "1650 Crossings Pkwy, Westlake, Ohio, US",
+          "phone": "(877) 375-2023",
+          "email": "",
+          "domain": "focused-ec.com",
+          "url": "http://focused-ec.com/"
+        },
+        {
+          "id": "100376ac-c335-49ab-87cb-a1bffe10da0f",
+          "companyName": "Ecommerce Gateway",
+          "address": "Corporate Center, 1515 Woodfield Rd Suite 112, Schaumburg, Illinois, US",
+          "phone": "(224) 520-8428",
+          "email": "",
+          "domain": "google.com",
+          "url": "https://www.google.com/maps/search/?api=1&query=Ecommerce%20Gateway&query_place_id=ChIJMR-_wZWvD4gRQBTM2M6zWPs"
+        },
+        {
+          "id": "512bf3be-3d2e-47b4-bc1a-c9f67a82010e",
+          "companyName": "Focused E-Commerce",
+          "address": "452 West Warner Road, Akron, Ohio, US",
+          "phone": "(877) 375-2023",
+          "email": "",
+          "domain": "focused-ec.com",
+          "url": "http://focused-ec.com/events_manager/locations/firestone-country-club/"
+        }
+      ]
+    },
+    {
+      "id": "1ba2bb85-62da-4b3a-bc81-9f04f65079c7",
+      "createdAt": "2026-04-09T08:28:29.486Z",
+      "request": {
+        "name": "ayaan",
+        "companyType": "Marketing Agency",
+        "location": "India",
+        "numberOfLeads": 10
+      },
+      "requestedCount": 10,
+      "generatedCount": 10,
+      "leads": [
+        {
+          "id": "20297f3a-733e-401c-96a2-8ae1fa356624",
+          "companyName": "SMAC DIGITAL",
+          "address": "116/230, 2nd floor, Anukampa Point, Shipra Path, Jaipur, Rajasthan, IN",
+          "phone": "+91 98290 69519",
+          "email": "",
+          "domain": "orbyza.com",
+          "url": "https://orbyza.com/"
+        },
+        {
+          "id": "ac6b39a6-0dcc-4724-8711-01c433e7a8b2",
+          "companyName": "The Digital Socialite",
+          "address": "Jaipur, Rajasthan, IN",
+          "phone": "+91 95879 44809",
+          "email": "",
+          "domain": "digitalsocialite.in",
+          "url": "http://digitalsocialite.in/"
+        },
+        {
+          "id": "fe6d931c-4fd4-4206-a597-bf2785776522",
+          "companyName": "Tirupati Media House",
+          "address": "138, Rajendra Path, Jaipur, Rajasthan, IN",
+          "phone": "+91 81079 71575",
+          "email": "",
+          "domain": "tirupatimediahouse.com",
+          "url": "https://www.tirupatimediahouse.com/digital-marketing-company-in-jaipur"
+        },
+        {
+          "id": "89205a6b-07f7-4306-9903-cd754e8d3905",
+          "companyName": "Sage Media: Best Digital Marketing Agency in India",
+          "address": "904, 905, Golden Leaf Apartments, Tonk Rd, Jaipur, Rajasthan, IN",
+          "phone": "+91 73550 04934",
+          "email": "",
+          "domain": "sagemedia.in",
+          "url": "http://www.sagemedia.in/"
+        },
+        {
+          "id": "065b0ee3-a901-413f-9c9d-0bd9a6969587",
+          "companyName": "Adsgrip Consultancy | Best & Top Digital Marketing Agency in Jaipur",
+          "address": "402, Bidla Sons Tower, Ajmer Rd, near Bank of Baroda, Jaipur, Rajasthan, IN",
+          "phone": "+91 78770 60925",
+          "email": "",
+          "domain": "adsgrip.com",
+          "url": "https://adsgrip.com/best-digital-marketing-agency-web-development-company/"
+        },
+        {
+          "id": "2bc6ae54-a13b-484d-ae4d-6a56fa65d2bb",
+          "companyName": "Jainshree Digital | best digital marketing company in indore | social media marketing | business lead generation",
+          "address": "Scheme no 71, 1067, near nakoda chouk, behind ranjeet Hanuman temple, Indore, Madhya Pradesh, IN",
+          "phone": "+91 96174 38100",
+          "email": "",
+          "domain": "jainshreedigital.com",
+          "url": "https://jainshreedigital.com/"
+        },
+        {
+          "id": "68d2275d-cbb4-4b37-837e-4ba43f80015d",
+          "companyName": "ADITDUDE",
+          "address": "Address not available",
+          "phone": "+91 87700 74599",
+          "email": "",
+          "domain": "aditdude.in",
+          "url": "http://aditdude.in/"
+        },
+        {
+          "id": "cccd7056-fcfa-4bde-8838-4e6c9c85e547",
+          "companyName": "Social Shapers - Digital Marketing Agency in Indore",
+          "address": "Indore, Madhya Pradesh, IN",
+          "phone": "+91 91650 23246",
+          "email": "",
+          "domain": "socialshapers.wixstudio.com",
+          "url": "https://socialshapers.wixstudio.com/site"
+        },
+        {
+          "id": "f0781e3c-bfb6-40e3-88ec-69dc5f95954b",
+          "companyName": "Digital Marketing Indore, Digital Marketing Agency Indore, Digital Marketing Company Indore, Reliable Digital Expert",
+          "address": "B-281,Veena Nagar, Sukhliya, Indore, Madhya Pradesh, IN",
+          "phone": "+91 89625 01325",
+          "email": "",
+          "domain": "digitalmarketingindore.com",
+          "url": "http://www.digitalmarketingindore.com/"
+        },
+        {
+          "id": "e0204594-63dc-4ae5-b6d8-7ae13b1a3410",
+          "companyName": "Wassup Bhopal",
+          "address": "BNest, Bhopal Smart City Development Center, near Natraj Petrol Pump, Bhopal, Madhya Pradesh, IN",
+          "phone": "+91 82692 32080",
+          "email": "",
+          "domain": "wassup-bhopal.grexa.site",
+          "url": "https://wassup-bhopal.grexa.site/"
+        }
+      ]
+    },
+    {
+      "id": "d0fb0c4f-f774-44db-b55a-875710d05b11",
+      "createdAt": "2026-04-09T08:07:37.069Z",
+      "request": {
+        "name": "ayaana",
+        "companyType": "Healthcare",
+        "location": "USA",
+        "numberOfLeads": 10
+      },
+      "requestedCount": 10,
+      "generatedCount": 10,
+      "leads": [
+        {
+          "id": "f643b053-b400-4a41-a699-126c029ebea7",
+          "companyName": "OceanFront Urgent Care & Family Medicine",
+          "address": "31236 Palos Verdes Dr W, Rancho Palos Verdes, California, US",
+          "phone": "(310) 544-2121",
+          "email": "",
+          "domain": "palosverdesurgentcare.com",
+          "url": "http://www.palosverdesurgentcare.com/"
+        },
+        {
+          "id": "de96f680-bec2-435a-ac5d-949c2e6ef800",
+          "companyName": "Exer Urgent Care - Rolling Hills Estates",
+          "address": "395 Silver Spur Rd, Rolling Hills Estates, California, US",
+          "phone": "(424) 323-3500",
+          "email": "",
+          "domain": "exerurgentcare.com",
+          "url": "https://exerurgentcare.com/urgent-care-rolling-hills-estates/"
+        },
+        {
+          "id": "96a0a429-843e-4823-ab7b-27598d22f02d",
+          "companyName": "Palos Verdes Health Care Center",
+          "address": "26303 S Western Ave, Lomita, California, US",
+          "phone": "(310) 784-5440",
+          "email": "",
+          "domain": "palosverdeshealthcarecenter.com",
+          "url": "http://www.palosverdeshealthcarecenter.com/"
+        },
+        {
+          "id": "d8d25958-dccf-436d-90fe-6a783cab1005",
+          "companyName": "UCLA Health Palos Verdes Primary & Specialty Care",
+          "address": "501 Deep Valley Dr Suite 100, Rolling Hills Estates, California, US",
+          "phone": "(310) 303-3953",
+          "email": "",
+          "domain": "uclahealth.org",
+          "url": "https://www.uclahealth.org/locations/palos-verdes-primary-specialty-care?utm_source=google&utm_medium=Yext"
+        },
+        {
+          "id": "93dc3737-5f0b-48d3-861c-7bdc0edb58e0",
+          "companyName": "Exer Urgent Care - Rancho Palos Verdes",
+          "address": "28900 S Western Ave, Rancho Palos Verdes, California, US",
+          "phone": "(424) 702-0500",
+          "email": "",
+          "domain": "exerurgentcare.com",
+          "url": "https://exerurgentcare.com/locations_blue/rancho-palos-verdes/"
+        },
+        {
+          "id": "b7bc6653-95a8-4751-a5f1-b750732bba7e",
+          "companyName": "sherbert's shack",
+          "address": "Alaska, US",
+          "phone": "Phone not available",
+          "email": "",
+          "domain": "google.com",
+          "url": "https://www.google.com/maps/search/?api=1&query=sherbert's%20shack&query_place_id=ChIJm30xJR0B2VAR7eKGCqCsHao"
+        },
+        {
+          "id": "e4281c46-5c07-41f7-8547-452531715eb5",
+          "companyName": "North Slope Borough Health",
+          "address": "1235 Airport Rd, Wainwright, Alaska, US",
+          "phone": "(907) 763-2714",
+          "email": "",
+          "domain": "google.com",
+          "url": "https://www.google.com/maps/search/?api=1&query=North%20Slope%20Borough%20Health&query_place_id=ChIJ9e8rnXtuxFARPPCPmotaDUw"
+        },
+        {
+          "id": "4f839f3f-1d35-46f2-b6e6-134afd152406",
+          "companyName": "Still Well Med Spa",
+          "address": "45 McClean Ave, Staten Island, New York, US",
+          "phone": "(718) 448-6373",
+          "email": "",
+          "domain": "stillwellmed.com",
+          "url": "http://stillwellmed.com/?utm_source=gbp&utm_medium=organic"
+        },
+        {
+          "id": "86dad939-7cc8-45ad-9a42-cb0b9d646e75",
+          "companyName": "Dr. Gayathri Gara MD",
+          "address": "174 Lily Pond Ave, Staten Island, New York, US",
+          "phone": "(718) 727-7935",
+          "email": "",
+          "domain": "northwell.edu",
+          "url": "https://www.northwell.edu/find-care/find-a-doctor/dr-gayathri-gara-md-11366508"
+        },
+        {
+          "id": "e4dcdf3c-713f-4253-a0c8-a8cb21d03b30",
+          "companyName": "Resilience Health Systems",
+          "address": "124 McClean Ave, Staten Island, New York, US",
+          "phone": "(718) 876-8080",
+          "email": "",
+          "domain": "resilienceclinic.com",
+          "url": "https://www.resilienceclinic.com/contacts/"
+        }
+      ]
+    },
+    {
+      "id": "7af4ed1c-1f58-45d4-a0f6-4212e7e97f6a",
+      "createdAt": "2026-04-09T08:04:56.457Z",
+      "request": {
+        "name": "aryan",
+        "companyType": "E-commerce",
+        "location": "dubai",
+        "numberOfLeads": 10
+      },
+      "requestedCount": 10,
+      "generatedCount": 10,
+      "leads": [
+        {
+          "id": "98a881cc-b1f0-4c47-8284-84b851d7b30f",
+          "companyName": "E-Commerce Photography Dubai",
+          "address": "Authoman Building Intersection of Al Khaleej Street - Al Musalla Rd, Dubai, AE",
+          "phone": "+971 56 291 8618",
+          "email": "",
+          "domain": "google.com",
+          "url": "https://www.google.com/maps/search/?api=1&query=E-Commerce%20Photography%20Dubai&query_place_id=ChIJZYykLCFDXz4RbAPAu7PBfVI"
+        },
+        {
+          "id": "35f27054-5bc7-4bbe-b4a0-40bbc5e143a1",
+          "companyName": "E-Commerce Shop",
+          "address": "Dubai, AE",
+          "phone": "+971 52 973 9325",
+          "email": "",
+          "domain": "google.com",
+          "url": "https://www.google.com/maps/search/?api=1&query=E-Commerce%20Shop&query_place_id=ChIJva9mQDJdXz4RxaQ273AMtKU"
+        },
+        {
+          "id": "44b5b0b3-f169-4a97-ad3a-98de41ce40e5",
+          "companyName": "Buytronics",
+          "address": "Hyatt Regency Dubai - Al Khaleej Street Naif - Office 258 - Second Floor, Dubai, AE",
+          "phone": "+971 50 778 7899",
+          "email": "",
+          "domain": "buytronics.ae",
+          "url": "https://buytronics.ae/"
+        },
+        {
+          "id": "706f1a4f-fe31-4d2c-967a-4ac75b8edc69",
+          "companyName": "Easy Commerce General Trading",
+          "address": "Dubai, AE",
+          "phone": "+971 58 590 2277",
+          "email": "",
+          "domain": "easycommercegt.com",
+          "url": "https://easycommercegt.com/"
+        },
+        {
+          "id": "e94cf2c8-6531-4b28-a96e-7ffb8fa123cf",
+          "companyName": "Ecartbasket",
+          "address": "Grill Chilli Restaurant, Empire Plaza - Naif Rd, Dubai, AE",
+          "phone": "+971 55 615 0134",
+          "email": "",
+          "domain": "ecartbasket.com",
+          "url": "https://ecartbasket.com/"
+        },
+        {
+          "id": "1cc14bf1-602e-4f34-8fe3-2a37ed68e811",
+          "companyName": "UNOO",
+          "address": "Al Hudaiba St 17, Satwa, Centro Mall - Shop M1, Dubai, AE",
+          "phone": "+971 4 380 5335",
+          "email": "",
+          "domain": "unoo.ae",
+          "url": "https://unoo.ae/"
+        },
+        {
+          "id": "6a324972-299c-434f-96a9-fc9463d1e621",
+          "companyName": "Social Wave International General Trading FZ-LLc",
+          "address": "57b 8A St, Dubai, AE",
+          "phone": "+971 56 769 8149",
+          "email": "",
+          "domain": "socialwaveinternat.wixsite.com",
+          "url": "https://socialwaveinternat.wixsite.com/socialwaveinternatio"
+        },
+        {
+          "id": "69488921-92ec-41a5-91e7-b836bb6a0786",
+          "companyName": "Shah Emporium LLC",
+          "address": "building 60 21st St, Dubai, AE",
+          "phone": "+971 55 408 1610",
+          "email": "",
+          "domain": "noon.com",
+          "url": "https://www.noon.com/seller/p-128405?link_source=share_btn"
+        },
+        {
+          "id": "ccac4352-c745-4cef-b817-b3d998c35688",
+          "companyName": "Novanestae",
+          "address": "sikka 18B St, Dubai, AE",
+          "phone": "+971 56 875 6151",
+          "email": "",
+          "domain": "novanestae.com",
+          "url": "https://novanestae.com/"
+        },
+        {
+          "id": "378f1c3d-5730-42ed-858e-6ac63d6e8134",
+          "companyName": "LUMINA - Shopify Select Partner & Performance Marketing Agency",
+          "address": "Dubai Trade Center First - Sheikh Zayed Rd, Dubai, AE",
+          "phone": "+971 56 842 6687",
+          "email": "",
+          "domain": "luminacommerce.com",
+          "url": "https://www.luminacommerce.com/"
+        }
+      ]
+    }
+  ]
+}
