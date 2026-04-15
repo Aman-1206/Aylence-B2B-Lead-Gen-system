@@ -2,12 +2,13 @@ import { NextResponse } from "next/server";
 import { dedupeLeads, fetchUniqueApifyLeads } from "@/lib/apify";
 import { enrichLeads } from "@/lib/hunter";
 import { saveLeadGeneration } from "@/lib/leadGenerations";
-import { sanitizeLeadRequest, type Lead, type LeadRequestWithInitialLeads } from "@/lib/generateMockLeads";
+import type { Lead } from "@/lib/generateMockLeads";
+import { resolveLeadRequest, type LeadRequestPayload } from "@/lib/leadRequestResolver";
 
 export async function POST(request: Request) {
   try {
-    const body = (await request.json()) as LeadRequestWithInitialLeads;
-    const payload = sanitizeLeadRequest(body);
+    const body = (await request.json()) as LeadRequestPayload & { initialLeads?: Lead[] };
+    const { inputMode, request: payload } = await resolveLeadRequest(body);
     const initialLeads = dedupeLeads(Array.isArray(body.initialLeads) ? body.initialLeads : []);
     const combinedLeads = await fetchUniqueApifyLeads(payload, payload.numberOfLeads, initialLeads);
     const leadsNeedingEnrichment = combinedLeads.filter(
@@ -32,7 +33,11 @@ export async function POST(request: Request) {
 
     return NextResponse.json({
       leads: finalLeads,
-      message: exactCountMessage,
+      resolvedRequest: payload,
+      message:
+        inputMode === "prompt"
+          ? `Prompt request resolved to ${payload.companyType} in ${payload.location} for ${payload.numberOfLeads} leads. ${exactCountMessage}`
+          : exactCountMessage,
     });
   } catch (error) {
     return NextResponse.json(
