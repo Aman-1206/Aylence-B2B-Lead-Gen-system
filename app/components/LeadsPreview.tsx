@@ -5,6 +5,7 @@ type LeadsPreviewProps = {
   isLoading: boolean;
   isContinuing: boolean;
   canContinue: boolean;
+  testLeadCount: number;
   onRegenerateNext: () => Promise<void>;
   onContinue: () => Promise<void>;
 };
@@ -14,6 +15,7 @@ export default function LeadsPreview({
   isLoading,
   isContinuing,
   canContinue,
+  testLeadCount,
   onRegenerateNext,
   onContinue,
 }: LeadsPreviewProps) {
@@ -23,11 +25,11 @@ export default function LeadsPreview({
         <div>
           <h3 className="text-xl font-semibold">Preview Leads</h3>
           <p className="mt-1 text-sm text-slate-300">
-            Review this 5-lead preview before generating the full list.
+            Review this test list before generating the full list.
           </p>
         </div>
         <div className="rounded-full bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-slate-200">
-          5 lead preview
+          {testLeadCount} test leads
         </div>
       </div>
 
@@ -45,7 +47,9 @@ export default function LeadsPreview({
                 </p>
                 <p className="mt-1 text-sm text-slate-300">{lead.address}</p>
                 <div className="mt-2 flex flex-wrap gap-2 text-xs text-slate-200">
-                  <span className="rounded-full bg-white/10 px-3 py-1">{lead.domain}</span>
+                  <span className="rounded-full bg-white/10 px-3 py-1">
+                    {lead.domain || "Domain not available"}
+                  </span>
                   <span className="rounded-full bg-emerald-400/20 px-3 py-1 text-emerald-200">
                     {lead.emailStatus === "valid"
                       ? `Valid (${lead.emailScore ?? "n/a"})`
@@ -56,7 +60,7 @@ export default function LeadsPreview({
                           : lead.emailStatus === "not_found"
                             ? "Email not found"
                             : lead.emailStatus === "not_configured"
-                              ? "Hunter not configured"
+                              ? "Email enrichment off"
                               : "Unverified"}
                   </span>
                   <a
@@ -70,7 +74,7 @@ export default function LeadsPreview({
                 </div>
               </div>
               <div className="space-y-1 text-sm text-slate-200">
-                <p>{lead.phone}</p>
+                <p>{lead.phone || "Phone not available"}</p>
                 <p>{lead.email || "Email not available"}</p>
                 <p>Score: {lead.emailScore ?? "N/A"}</p>
               </div>
@@ -100,7 +104,7 @@ export default function LeadsPreview({
         </button>
       </div>
       <p className="text-xs text-slate-400">
-        Only leads with a website domain are shown here.
+        Leads appear when a domain, phone number, or email is available.
       </p>
     </div>
   );

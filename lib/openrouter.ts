@@ -89,7 +89,7 @@ function parsePromptResponse(content: string): ParsedLeadPrompt {
   return {
     companyType,
     location,
-    numberOfLeads: Math.max(5, Math.round(numberOfLeads)),
+    numberOfLeads: Math.min(15, Math.max(1, Math.round(numberOfLeads))),
   };
 }
 
@@ -123,7 +123,7 @@ export async function parseLeadPrompt(prompt: string): Promise<ParsedLeadPrompt>
         {
           role: "system",
           content:
-            "Extract lead generation search parameters from the user's prompt. Return only valid JSON with this exact shape: {\"companyType\":\"string\",\"location\":\"string\",\"numberOfLeads\":number}. Do not add markdown, comments, or extra keys. If the prompt is ambiguous, infer the most likely companyType and location only when the user strongly implies them. Always keep numberOfLeads as a whole number.",
+            "Extract lead generation search parameters from the user's prompt. Return only valid JSON with this exact shape: {\"companyType\":\"string\",\"location\":\"string\",\"numberOfLeads\":number}. Do not add markdown, comments, or extra keys. If the prompt is ambiguous, infer the most likely companyType and location only when the user strongly implies them. Always keep numberOfLeads as a whole number, capped at 15.",
         },
         {
           role: "user",

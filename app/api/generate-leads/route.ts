@@ -1,29 +1,25 @@
 import { NextResponse } from "next/server";
 import { fetchApifyLeadWindow } from "@/lib/apify";
-import { enrichLeads } from "@/lib/hunter";
+import { getPreviousLeadsForRequest } from "@/lib/leadGenerations";
 import { resolveLeadRequest, type LeadRequestPayload } from "@/lib/leadRequestResolver";
 
 export async function POST(request: Request) {
   try {
     const body = (await request.json()) as LeadRequestPayload & { offset?: number };
-    const { inputMode, request: payload } = await resolveLeadRequest(body);
+    const { request: payload } = await resolveLeadRequest(body);
     const offset = Math.max(0, Number(body.offset) || 0);
-    const leads = await fetchApifyLeadWindow(payload, offset, 5);
-    const enrichedLeads = await enrichLeads(leads);
-    const summaryPrefix =
-      inputMode === "prompt"
-        ? `Prompt interpreted as ${payload.companyType} in ${payload.location} for ${payload.numberOfLeads} leads. `
-        : "";
+    const testLeadCount = Math.min(15, Math.max(1, payload.testLeadCount));
+    const previousLeads = await getPreviousLeadsForRequest(payload);
+    const leads = await fetchApifyLeadWindow(payload, offset, testLeadCount, previousLeads);
 
     return NextResponse.json({
-      leads: enrichedLeads,
+      leads,
       resolvedRequest: payload,
       message:
-        summaryPrefix +
         (
-        enrichedLeads.length === 5
-          ? `Fetched a fresh 5-lead preview for ${payload.companyType} in ${payload.location}.`
-          : `Fetched ${enrichedLeads.length} preview leads for ${payload.companyType} in ${payload.location}.`
+        leads.length === testLeadCount
+          ? `Fetched a fresh ${testLeadCount}-lead test list for ${payload.companyType} in ${payload.location}.`
+          : `Fetched ${leads.length} preview leads for ${payload.companyType} in ${payload.location}.`
         ),
     });
   } catch (error) {

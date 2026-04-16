@@ -3,6 +3,12 @@ export type Lead = {
   contactName?: string;
   companyName: string;
   address: string;
+  street?: string;
+  city?: string;
+  landmark?: string;
+  state?: string;
+  country?: string;
+  postalCode?: string;
   phone: string;
   email: string;
   domain?: string;
@@ -14,7 +20,14 @@ export type Lead = {
 export type LeadRequest = {
   name: string;
   companyType: string;
+  leadPrompt: string;
   location: string;
+  city: string;
+  landmark: string;
+  state: string;
+  country: string;
+  postalCode: string;
+  testLeadCount: number;
   numberOfLeads: number;
 };
 
@@ -89,8 +102,31 @@ function buildContactName() {
   return `${randomFrom(firstNames)} ${randomFrom(lastNames)}`;
 }
 
-function buildAddress(location: string) {
-  return `${Math.floor(Math.random() * 180) + 1} ${randomFrom(streets)}, ${location}`;
+function splitLocation(location: string) {
+  const [city = "", state = "", country = ""] = location
+    .split(",")
+    .map((part) => part.trim())
+    .filter(Boolean);
+
+  return {
+    city,
+    state,
+    country: country || state,
+  };
+}
+
+function buildLocationFromAddress(payload: Partial<LeadRequest>) {
+  const parts = [
+    payload.landmark,
+    payload.city,
+    payload.state,
+    payload.country,
+    payload.postalCode,
+  ]
+    .map((part) => part?.trim())
+    .filter(Boolean);
+
+  return parts.join(", ") || payload.location?.trim() || "Delhi, India";
 }
 
 function buildPhone() {
@@ -113,11 +149,21 @@ function buildLeadKey(lead: Pick<Lead, "companyName" | "phone" | "email">) {
 }
 
 export function sanitizeLeadRequest(payload: Partial<LeadRequest>): LeadRequest {
+  const location = buildLocationFromAddress(payload);
+  const locationParts = splitLocation(location);
+
   return {
     name: payload.name?.trim() || "Unknown User",
     companyType: payload.companyType?.trim() || "Business",
-    location: payload.location?.trim() || "Delhi, India",
-    numberOfLeads: Math.max(5, Number(payload.numberOfLeads) || 5),
+    leadPrompt: payload.leadPrompt?.trim() || "",
+    location,
+    city: payload.city?.trim() || locationParts.city,
+    landmark: payload.landmark?.trim() || "",
+    state: payload.state?.trim() || locationParts.state,
+    country: payload.country?.trim() || locationParts.country,
+    postalCode: payload.postalCode?.trim() || "",
+    testLeadCount: Math.min(15, Math.max(1, Math.round(Number(payload.testLeadCount) || 5))),
+    numberOfLeads: Math.min(15, Math.max(1, Math.round(Number(payload.numberOfLeads) || 15))),
   };
 }
 
@@ -131,6 +177,8 @@ export function generateMockLeads(
 
   while (leads.length < count) {
     const companyName = buildCompanyName(request.companyType);
+    const street = `${Math.floor(Math.random() * 180) + 1} ${randomFrom(streets)}`;
+    const locationParts = splitLocation(request.location);
     const phone = buildPhone();
     const email = buildEmail(companyName);
     const url = buildWebsite(companyName);
@@ -138,7 +186,13 @@ export function generateMockLeads(
       id: crypto.randomUUID(),
       contactName: buildContactName(),
       companyName,
-      address: buildAddress(request.location),
+      address: `${street}, ${request.location}`,
+      street,
+      city: request.city || locationParts.city,
+      landmark: request.landmark || randomFrom(streets),
+      state: request.state || locationParts.state,
+      country: request.country || locationParts.country,
+      postalCode: request.postalCode,
       phone,
       email,
       domain: url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, ""),

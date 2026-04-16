@@ -7,6 +7,9 @@ type ApifyPlace = {
   street?: string;
   city?: string;
   state?: string;
+  neighborhood?: string;
+  postalCode?: string;
+  country?: string;
   countryCode?: string;
   phone?: string;
   website?: string;
@@ -33,7 +36,7 @@ function getActorId() {
 }
 
 function compactAddress(place: ApifyPlace) {
-  return [place.street, place.city, place.state, place.countryCode]
+  return [place.street, place.city, place.state, place.country || place.countryCode]
     .filter(Boolean)
     .join(", ");
 }
@@ -86,7 +89,13 @@ function mapPlaceToLead(place: ApifyPlace): Lead {
     contactName: place.contactName?.trim() || place.contactPerson?.trim() || "",
     companyName: place.title?.trim() || "Unknown Company",
     address: compactAddress(place) || "Address not available",
-    phone: place.phone?.trim() || "Phone not available",
+    street: place.street?.trim() || "",
+    city: place.city?.trim() || "",
+    landmark: place.neighborhood?.trim() || "",
+    state: place.state?.trim() || "",
+    country: place.country?.trim() || place.countryCode?.trim() || "",
+    postalCode: place.postalCode?.trim() || "",
+    phone: place.phone?.trim() || "",
     email: pickEmail(place),
     domain,
     url,
@@ -96,6 +105,8 @@ function mapPlaceToLead(place: ApifyPlace): Lead {
 }
 
 function buildApifyInput(request: LeadRequest, count: number) {
+  const searchString = [request.companyType, request.leadPrompt].filter(Boolean).join(" ");
+
   return {
     includeWebResults: false,
     language: "en",
@@ -115,7 +126,7 @@ function buildApifyInput(request: LeadRequest, count: number) {
       youtubes: false,
     },
     scrapeTableReservationProvider: false,
-    searchStringsArray: [request.companyType],
+    searchStringsArray: [searchString || request.companyType],
     skipClosedPlaces: false,
   };
 }
@@ -142,14 +153,37 @@ export async function fetchApifyLeads(request: LeadRequest, count: number) {
   const items = (await response.json()) as ApifyPlace[];
   return items
     .map(mapPlaceToLead)
-    .filter((lead) => lead.domain);
+    .filter(hasAnyLeadContact);
 }
 
-export function dedupeLeads(leads: Lead[]) {
-  const seen = new Set<string>();
+export function hasAnyLeadContact(lead: Lead) {
+  return Boolean(lead.domain?.trim() || lead.phone?.trim() || lead.email?.trim());
+}
+
+export function getLeadFingerprint(lead: Lead) {
+  const domain = lead.domain?.trim().toLowerCase();
+  if (domain) {
+    return `domain:${domain}`;
+  }
+
+  const phone = lead.phone?.replace(/\D/g, "");
+  if (phone) {
+    return `phone:${phone}`;
+  }
+
+  const email = lead.email?.trim().toLowerCase();
+  if (email) {
+    return `email:${email}`;
+  }
+
+  return `company:${lead.companyName.trim().toLowerCase()}|${lead.address.trim().toLowerCase()}`;
+}
+
+export function dedupeLeads(leads: Lead[], excludedLeads: Lead[] = []) {
+  const seen = new Set<string>(excludedLeads.map(getLeadFingerprint));
 
   return leads.filter((lead) => {
-    const key = `${lead.companyName}|${lead.address}|${lead.phone}`;
+    const key = getLeadFingerprint(lead);
 
     if (seen.has(key)) {
       return false;
@@ -164,12 +198,13 @@ export async function fetchApifyLeadWindow(
   request: LeadRequest,
   offset: number,
   limit: number,
-  existingLeads: Lead[] = [],
+  excludedLeads: Lead[] = [],
 ) {
   const safeOffset = Math.max(0, offset);
   const safeLimit = Math.max(1, limit);
-  const rawLeads = await fetchApifyLeads(request, safeOffset + safeLimit);
-  const uniqueLeads = dedupeLeads([...existingLeads, ...rawLeads]);
+  const fetchCount = Math.max(safeOffset + safeLimit + excludedLeads.length, safeLimit);
+  const rawLeads = await fetchApifyLeads(request, fetchCount);
+  const uniqueLeads = dedupeLeads(rawLeads, excludedLeads);
 
   return uniqueLeads.slice(safeOffset, safeOffset + safeLimit);
 }
@@ -178,16 +213,17 @@ export async function fetchUniqueApifyLeads(
   request: LeadRequest,
   targetCount: number,
   existingLeads: Lead[] = [],
+  excludedLeads: Lead[] = [],
 ) {
   const safeTarget = Math.max(0, targetCount);
-  let uniqueLeads = dedupeLeads(existingLeads);
-  let fetchCount = Math.max(safeTarget, existingLeads.length + 5, 5);
+  let uniqueLeads = dedupeLeads(existingLeads, excludedLeads);
+  let fetchCount = Math.max(safeTarget + excludedLeads.length, existingLeads.length + 5, 5);
   let attempts = 0;
 
   while (uniqueLeads.length < safeTarget && attempts < 5) {
     const fetchedLeads = await fetchApifyLeads(request, fetchCount);
-    uniqueLeads = dedupeLeads([...existingLeads, ...fetchedLeads]);
-    fetchCount += Math.max(safeTarget - uniqueLeads.length, 5);
+    uniqueLeads = dedupeLeads([...existingLeads, ...fetchedLeads], excludedLeads);
+    fetchCount += Math.max(safeTarget - uniqueLeads.length, 5) + excludedLeads.length;
     attempts += 1;
   }
 

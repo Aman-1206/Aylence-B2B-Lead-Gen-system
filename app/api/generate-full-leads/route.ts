@@ -1,43 +1,62 @@
 import { NextResponse } from "next/server";
-import { dedupeLeads, fetchUniqueApifyLeads } from "@/lib/apify";
-import { enrichLeads } from "@/lib/hunter";
-import { saveLeadGeneration } from "@/lib/leadGenerations";
+import { dedupeLeads, fetchUniqueApifyLeads, hasAnyLeadContact } from "@/lib/apify";
+import { getPreviousLeadsForRequest, saveLeadGeneration } from "@/lib/leadGenerations";
 import type { Lead } from "@/lib/generateMockLeads";
 import { resolveLeadRequest, type LeadRequestPayload } from "@/lib/leadRequestResolver";
+import { getCurrentSession } from "@/lib/authSession";
 
 export async function POST(request: Request) {
   try {
+    const session = await getCurrentSession();
+    if (!session) {
+      return NextResponse.json({ error: "Authentication required." }, { status: 401 });
+    }
+
     const body = (await request.json()) as LeadRequestPayload & { initialLeads?: Lead[] };
-    const { inputMode, request: payload } = await resolveLeadRequest(body);
-    const initialLeads = dedupeLeads(Array.isArray(body.initialLeads) ? body.initialLeads : []);
-    const combinedLeads = await fetchUniqueApifyLeads(payload, payload.numberOfLeads, initialLeads);
-    const leadsNeedingEnrichment = combinedLeads.filter(
-      (lead) =>
-        !lead.emailStatus ||
-        lead.emailStatus === "unverified" ||
-        lead.emailStatus === "not_configured",
+    const { request: payload } = await resolveLeadRequest(body);
+    const previousLeads = await getPreviousLeadsForRequest(payload);
+    const initialLeads = dedupeLeads(
+      Array.isArray(body.initialLeads) ? body.initialLeads : [],
+      previousLeads,
     );
-    const enrichedLeads = await enrichLeads(leadsNeedingEnrichment);
-    const enrichedLeadMap = new Map(enrichedLeads.map((lead) => [lead.id, lead]));
-    const finalLeads = combinedLeads.map((lead) => enrichedLeadMap.get(lead.id) || lead);
+    let combinedLeads = initialLeads;
+    let apifyFallbackMessage = "";
 
-    const savedToMongo = Boolean(await saveLeadGeneration(payload, finalLeads));
+    try {
+      combinedLeads = await fetchUniqueApifyLeads(
+        payload,
+        payload.numberOfLeads,
+        initialLeads,
+        previousLeads,
+      );
+    } catch (error) {
+      if (!initialLeads.length) {
+        throw error;
+      }
 
-    const storageLabel = savedToMongo
-      ? "MongoDB and data/leads.json"
-      : "data/leads.json";
+      console.warn("Apify final lead fetch failed. Falling back to preview leads.", {
+        error: error instanceof Error ? error.message : error,
+      });
+      apifyFallbackMessage =
+        " Apify could not complete the final run, so the available preview leads were used.";
+    }
+
+    const finalLeads = combinedLeads.filter(hasAnyLeadContact);
+
+    const savedToMongo = Boolean(await saveLeadGeneration(payload, finalLeads, session.email));
+
+    const storageMessage = savedToMongo
+      ? "and saved them to MongoDB"
+      : "without saving them because MongoDB is not configured";
     const exactCountMessage =
       finalLeads.length === payload.numberOfLeads
-        ? `Fetched ${finalLeads.length} unique leads, enriched them with Hunter, and saved them to ${storageLabel}.`
-        : `Fetched ${finalLeads.length} unique leads out of the requested ${payload.numberOfLeads}, enriched the available domains with Hunter, and saved them to ${storageLabel}.`;
+        ? `Fetched ${finalLeads.length} unique leads ${storageMessage}.${apifyFallbackMessage}`
+        : `Fetched ${finalLeads.length} unique leads out of the requested ${payload.numberOfLeads} ${storageMessage}.${apifyFallbackMessage}`;
 
     return NextResponse.json({
       leads: finalLeads,
       resolvedRequest: payload,
-      message:
-        inputMode === "prompt"
-          ? `Prompt request resolved to ${payload.companyType} in ${payload.location} for ${payload.numberOfLeads} leads. ${exactCountMessage}`
-          : exactCountMessage,
+      message: exactCountMessage,
     });
   } catch (error) {
     return NextResponse.json(

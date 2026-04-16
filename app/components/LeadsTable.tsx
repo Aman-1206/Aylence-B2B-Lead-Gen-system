@@ -35,6 +35,11 @@ export default function LeadsTable({ leads, requestedCount, onExport }: LeadsTab
                 <th className="px-4 py-3 font-medium">Domain</th>
                 <th className="px-4 py-3 font-medium">URL</th>
                 <th className="px-4 py-3 font-medium">Address</th>
+                <th className="px-4 py-3 font-medium">City</th>
+                <th className="px-4 py-3 font-medium">Landmark</th>
+                <th className="px-4 py-3 font-medium">State</th>
+                <th className="px-4 py-3 font-medium">Country</th>
+                <th className="px-4 py-3 font-medium">Postal Code</th>
                 <th className="px-4 py-3 font-medium">Phone</th>
                 <th className="px-4 py-3 font-medium">Email</th>
                 <th className="px-4 py-3 font-medium">Score</th>
@@ -46,19 +51,28 @@ export default function LeadsTable({ leads, requestedCount, onExport }: LeadsTab
                 <tr key={lead.id} className="text-sm text-slate-700">
                   <td className="px-4 py-3 font-medium text-slate-900">{lead.companyName}</td>
                   <td className="px-4 py-3">{lead.contactName || "Not available"}</td>
-                  <td className="px-4 py-3">{lead.domain}</td>
+                  <td className="px-4 py-3">{lead.domain || "Not available"}</td>
                   <td className="px-4 py-3">
-                    <a
-                      href={lead.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="font-medium text-teal-700 underline-offset-2 hover:underline"
-                    >
-                      Visit site
-                    </a>
+                    {lead.url ? (
+                      <a
+                        href={lead.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="font-medium text-teal-700 underline-offset-2 hover:underline"
+                      >
+                        Visit site
+                      </a>
+                    ) : (
+                      "Not available"
+                    )}
                   </td>
                   <td className="px-4 py-3">{lead.address}</td>
-                  <td className="px-4 py-3">{lead.phone}</td>
+                  <td className="px-4 py-3">{lead.city || "Not available"}</td>
+                  <td className="px-4 py-3">{lead.landmark || "Not available"}</td>
+                  <td className="px-4 py-3">{lead.state || "Not available"}</td>
+                  <td className="px-4 py-3">{lead.country || "Not available"}</td>
+                  <td className="px-4 py-3">{lead.postalCode || "Not available"}</td>
+                  <td className="px-4 py-3">{lead.phone || "Phone not available"}</td>
                   <td className="px-4 py-3">{lead.email || "Email not available"}</td>
                   <td className="px-4 py-3">{lead.emailScore ?? "N/A"}</td>
                   <td className="px-4 py-3 capitalize">{lead.emailStatus || "unverified"}</td>

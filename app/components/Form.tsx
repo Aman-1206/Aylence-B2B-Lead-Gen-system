@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import LeadsPreview from "@/app/components/LeadsPreview";
 import LeadsTable from "@/app/components/LeadsTable";
 import type { Lead, LeadRequest } from "@/lib/generateMockLeads";
@@ -20,7 +20,6 @@ const companyTypes = [
 const presetCompanyTypes = companyTypes.filter((companyType) => companyType !== "Other");
 
 type FlowStage = "idle" | "preview" | "full";
-type InputMode = "form" | "prompt";
 type GenerateLeadsResponse = {
   leads: Lead[];
   message?: string;
@@ -30,15 +29,21 @@ type GenerateLeadsResponse = {
 const initialForm: LeadRequest = {
   name: "",
   companyType: "Marketing Agency",
+  leadPrompt: "",
   location: "",
-  numberOfLeads: 50,
+  city: "",
+  landmark: "",
+  state: "",
+  country: "",
+  postalCode: "",
+  testLeadCount: 5,
+  numberOfLeads: 15,
 };
 
 export default function Form() {
   const [formData, setFormData] = useState<LeadRequest>(initialForm);
-  const [inputMode, setInputMode] = useState<InputMode>("form");
-  const [prompt, setPrompt] = useState("");
-  const [resolvedPromptRequest, setResolvedPromptRequest] = useState<LeadRequest | null>(null);
+  const previewAbortControllerRef = useRef<AbortController | null>(null);
+  const fullAbortControllerRef = useRef<AbortController | null>(null);
   const [previewLeads, setPreviewLeads] = useState<Lead[]>([]);
   const [fullLeads, setFullLeads] = useState<Lead[]>([]);
   const [stage, setStage] = useState<FlowStage>("idle");
@@ -49,18 +54,46 @@ export default function Form() {
   const [notice, setNotice] = useState<string | null>(null);
 
   const canContinue = previewLeads.length > 0 && !isPreviewLoading && !isFullLoading;
-  const effectiveRequest = inputMode === "prompt" ? resolvedPromptRequest || formData : formData;
+  const isGenerating = isPreviewLoading || isFullLoading;
+  const effectiveRequest = formData;
   const totalRequestedLabel = useMemo(() => {
-    if (inputMode === "prompt" && !resolvedPromptRequest) {
-      return "Prompt-driven request";
-    }
-
-    return `${effectiveRequest.numberOfLeads.toLocaleString()} leads requested`;
-  }, [effectiveRequest.numberOfLeads, inputMode, resolvedPromptRequest]);
+    return `${effectiveRequest.testLeadCount} test, ${effectiveRequest.numberOfLeads} final`;
+  }, [effectiveRequest.numberOfLeads, effectiveRequest.testLeadCount]);
   const selectedCompanyTypeOption = presetCompanyTypes.includes(formData.companyType)
     ? formData.companyType
     : "Other";
   const customCompanyType = selectedCompanyTypeOption === "Other" ? formData.companyType : "";
+
+  useEffect(() => {
+    return () => {
+      previewAbortControllerRef.current?.abort();
+      fullAbortControllerRef.current?.abort();
+    };
+  }, []);
+
+  function updateAddressField(field: keyof Pick<LeadRequest, "city" | "landmark" | "state" | "country" | "postalCode">, value: string) {
+    setFormData((current) => {
+      const next = {
+        ...current,
+        [field]: value,
+      };
+      const location = [
+        next.landmark,
+        next.city,
+        next.state,
+        next.country,
+        next.postalCode,
+      ]
+        .map((part) => part.trim())
+        .filter(Boolean)
+        .join(", ");
+
+      return {
+        ...next,
+        location,
+      };
+    });
+  }
 
   function resetGenerationState() {
     setPreviewLeads([]);
@@ -72,22 +105,17 @@ export default function Form() {
   }
 
   function buildRequestPayload() {
-    if (inputMode === "prompt") {
-      return {
-        ...(resolvedPromptRequest || {}),
-        inputMode,
-        name: formData.name,
-        prompt,
-      };
-    }
-
     return {
-      inputMode,
+      inputMode: "form",
       ...formData,
     };
   }
 
   async function fetchPreview(offset = 0) {
+    previewAbortControllerRef.current?.abort();
+    const abortController = new AbortController();
+    previewAbortControllerRef.current = abortController;
+
     setError(null);
     setNotice(null);
     setIsPreviewLoading(true);
@@ -102,6 +130,7 @@ export default function Form() {
           ...buildRequestPayload(),
           offset,
         }),
+        signal: abortController.signal,
       });
 
       if (!response.ok) {
@@ -116,14 +145,19 @@ export default function Form() {
       setStage("preview");
       setNotice(data.message ?? "Preview generated successfully.");
       if (data.resolvedRequest) {
-        setResolvedPromptRequest(data.resolvedRequest);
         setFormData(data.resolvedRequest);
-      } else if (inputMode === "form") {
-        setResolvedPromptRequest(null);
       }
     } catch (caughtError) {
+      if (caughtError instanceof DOMException && caughtError.name === "AbortError") {
+        setNotice("Lead generation stopped.");
+        return;
+      }
+
       setError(caughtError instanceof Error ? caughtError.message : "Something went wrong.");
     } finally {
+      if (previewAbortControllerRef.current === abortController) {
+        previewAbortControllerRef.current = null;
+      }
       setIsPreviewLoading(false);
     }
   }
@@ -134,6 +168,10 @@ export default function Form() {
   }
 
   async function handleContinue() {
+    fullAbortControllerRef.current?.abort();
+    const abortController = new AbortController();
+    fullAbortControllerRef.current = abortController;
+
     setError(null);
     setNotice(null);
     setIsFullLoading(true);
@@ -148,6 +186,7 @@ export default function Form() {
           ...buildRequestPayload(),
           initialLeads: previewLeads,
         }),
+        signal: abortController.signal,
       });
 
       if (!response.ok) {
@@ -160,18 +199,35 @@ export default function Form() {
       setStage("full");
       setNotice(data.message ?? "Full lead list ready.");
       if (data.resolvedRequest) {
-        setResolvedPromptRequest(data.resolvedRequest);
         setFormData(data.resolvedRequest);
       }
     } catch (caughtError) {
+      if (caughtError instanceof DOMException && caughtError.name === "AbortError") {
+        setNotice("Lead generation stopped.");
+        return;
+      }
+
       setError(caughtError instanceof Error ? caughtError.message : "Something went wrong.");
     } finally {
+      if (fullAbortControllerRef.current === abortController) {
+        fullAbortControllerRef.current = null;
+      }
       setIsFullLoading(false);
     }
   }
 
   async function handleRegenerate() {
-    await fetchPreview(previewOffset + 5);
+    await fetchPreview(previewOffset + effectiveRequest.testLeadCount);
+  }
+
+  function handleStopGenerating() {
+    previewAbortControllerRef.current?.abort();
+    fullAbortControllerRef.current?.abort();
+    previewAbortControllerRef.current = null;
+    fullAbortControllerRef.current = null;
+    setIsPreviewLoading(false);
+    setIsFullLoading(false);
+    setNotice("Lead generation stopped.");
   }
 
   function exportToCsv() {
@@ -185,6 +241,12 @@ export default function Form() {
       "Domain",
       "URL",
       "Address",
+      "Street",
+      "City",
+      "Landmark",
+      "State",
+      "Country",
+      "Postal Code",
       "Phone",
       "Email",
       "Score",
@@ -196,6 +258,12 @@ export default function Form() {
       lead.domain,
       lead.url,
       lead.address,
+      lead.street,
+      lead.city,
+      lead.landmark,
+      lead.state,
+      lead.country,
+      lead.postalCode,
       lead.phone,
       lead.email,
       lead.emailScore,
@@ -255,49 +323,7 @@ export default function Form() {
             />
           </label>
 
-          <div className="grid gap-2">
-            <span className="text-sm font-medium text-slate-700">Choose Input Mode</span>
-            <div className="grid gap-3 sm:grid-cols-2">
-              <button
-                type="button"
-                onClick={() => {
-                  setInputMode("form");
-                  setResolvedPromptRequest(null);
-                  resetGenerationState();
-                }}
-                className={`rounded-2xl border px-4 py-3 text-left transition ${
-                  inputMode === "form"
-                    ? "border-teal-600 bg-teal-50 text-teal-900 ring-4 ring-teal-100"
-                    : "border-slate-200 bg-white text-slate-700 hover:border-slate-300"
-                }`}
-              >
-                <span className="block text-sm font-semibold">Fill the form</span>
-                <span className="mt-1 block text-sm text-slate-500">
-                  Pick company type, location, and lead count manually.
-                </span>
-              </button>
-              <button
-                type="button"
-                onClick={() => {
-                  setInputMode("prompt");
-                  resetGenerationState();
-                }}
-                className={`rounded-2xl border px-4 py-3 text-left transition ${
-                  inputMode === "prompt"
-                    ? "border-teal-600 bg-teal-50 text-teal-900 ring-4 ring-teal-100"
-                    : "border-slate-200 bg-white text-slate-700 hover:border-slate-300"
-                }`}
-              >
-                <span className="block text-sm font-semibold">Write a prompt</span>
-                <span className="mt-1 block text-sm text-slate-500">
-                  Let OpenRouter extract the search requirements for Apify.
-                </span>
-              </button>
-            </div>
-          </div>
-
-          {inputMode === "form" ? (
-            <>
+          <>
               <div className="grid gap-4 sm:grid-cols-2">
                 <label className="grid gap-2">
                   <span className="text-sm font-medium text-slate-700">Company Type</span>
@@ -334,94 +360,147 @@ export default function Form() {
                   </label>
                 ) : null}
 
+              </div>
+
+              <label className="grid gap-2">
+                <span className="text-sm font-medium text-slate-700">
+                  Lead Details / Prompt
+                </span>
+                <textarea
+                  className="min-h-28 rounded-2xl border border-slate-200 bg-white px-4 py-3 outline-none transition focus:border-teal-500 focus:ring-4 focus:ring-teal-100"
+                  value={formData.leadPrompt}
+                  onChange={(event) =>
+                    setFormData((current) => ({ ...current, leadPrompt: event.target.value }))
+                  }
+                  placeholder="Add specifics like: only B2B agencies, companies with websites, premium clinics, startup-focused firms, or areas to prioritize."
+                />
+                <span className="text-xs text-slate-500">
+                  Optional. These details are added to the search query to make results more specific.
+                </span>
+              </label>
+
+              <div className="grid gap-4 sm:grid-cols-2">
                 <label className="grid gap-2">
-                  <span className="text-sm font-medium text-slate-700">Location</span>
+                  <span className="text-sm font-medium text-slate-700">City</span>
                   <input
                     className="rounded-2xl border border-slate-200 bg-white px-4 py-3 outline-none transition focus:border-teal-500 focus:ring-4 focus:ring-teal-100"
-                    value={formData.location}
-                    onChange={(event) =>
-                      setFormData((current) => ({ ...current, location: event.target.value }))
-                    }
-                    placeholder="Delhi, India"
+                    value={formData.city}
+                    onChange={(event) => updateAddressField("city", event.target.value)}
+                    placeholder="Delhi"
+                  />
+                </label>
+
+                <label className="grid gap-2">
+                  <span className="text-sm font-medium text-slate-700">Landmark / Area</span>
+                  <input
+                    className="rounded-2xl border border-slate-200 bg-white px-4 py-3 outline-none transition focus:border-teal-500 focus:ring-4 focus:ring-teal-100"
+                    value={formData.landmark}
+                    onChange={(event) => updateAddressField("landmark", event.target.value)}
+                    placeholder="Connaught Place"
+                  />
+                </label>
+
+                <label className="grid gap-2">
+                  <span className="text-sm font-medium text-slate-700">State</span>
+                  <input
+                    className="rounded-2xl border border-slate-200 bg-white px-4 py-3 outline-none transition focus:border-teal-500 focus:ring-4 focus:ring-teal-100"
+                    value={formData.state}
+                    onChange={(event) => updateAddressField("state", event.target.value)}
+                    placeholder="Delhi"
+                  />
+                </label>
+
+                <label className="grid gap-2">
+                  <span className="text-sm font-medium text-slate-700">Country</span>
+                  <input
+                    className="rounded-2xl border border-slate-200 bg-white px-4 py-3 outline-none transition focus:border-teal-500 focus:ring-4 focus:ring-teal-100"
+                    value={formData.country}
+                    onChange={(event) => updateAddressField("country", event.target.value)}
+                    placeholder="India"
                     required
                   />
                 </label>
+
+                <label className="grid gap-2 sm:col-span-2">
+                  <span className="text-sm font-medium text-slate-700">Postal Code</span>
+                  <input
+                    className="rounded-2xl border border-slate-200 bg-white px-4 py-3 outline-none transition focus:border-teal-500 focus:ring-4 focus:ring-teal-100"
+                    value={formData.postalCode}
+                    onChange={(event) => updateAddressField("postalCode", event.target.value)}
+                    placeholder="110001"
+                  />
+                  <span className="text-xs text-slate-500">
+                    Search location: {formData.location || "Add a city and country to target the search."}
+                  </span>
+                </label>
               </div>
 
-              <label className="grid gap-2">
-                <span className="text-sm font-medium text-slate-700">Number of Leads</span>
-                <input
-                  type="number"
-                  min={5}
-                  step={1}
-                  className="rounded-2xl border border-slate-200 bg-white px-4 py-3 outline-none transition focus:border-teal-500 focus:ring-4 focus:ring-teal-100"
-                  value={formData.numberOfLeads}
-                  onChange={(event) =>
-                    setFormData((current) => ({
-                      ...current,
-                      numberOfLeads: Number(event.target.value || 5),
-                    }))
-                  }
-                  required
-                />
-                <span className="text-xs text-slate-500">
-                  Minimum 5 so the preview and final list stay aligned.
-                </span>
-              </label>
-            </>
-          ) : (
-            <div className="grid gap-4">
-              <label className="grid gap-2">
-                <span className="text-sm font-medium text-slate-700">Lead Generation Prompt</span>
-                <textarea
-                  className="min-h-32 rounded-2xl border border-slate-200 bg-white px-4 py-3 outline-none transition focus:border-teal-500 focus:ring-4 focus:ring-teal-100"
-                  value={prompt}
-                  onChange={(event) => {
-                    setPrompt(event.target.value);
-                    setResolvedPromptRequest(null);
-                  }}
-                  placeholder="Generate 100 software company leads in Bangalore, India."
-                  required
-                />
-              </label>
-              <div className="rounded-2xl border border-slate-200 bg-white/80 px-4 py-3 text-sm text-slate-600">
-                Include the company type, location, and number of leads in plain language. The
-                prompt will be parsed by OpenRouter, then the extracted values will be sent to
-                Apify.
-              </div>
-              {resolvedPromptRequest ? (
-                <div className="grid gap-2 rounded-2xl border border-teal-200 bg-teal-50 px-4 py-3 text-sm text-teal-900 sm:grid-cols-3">
-                  <div>
-                    <span className="block text-xs font-semibold uppercase tracking-[0.18em] text-teal-700">
-                      Company Type
-                    </span>
-                    <span>{resolvedPromptRequest.companyType}</span>
-                  </div>
-                  <div>
-                    <span className="block text-xs font-semibold uppercase tracking-[0.18em] text-teal-700">
-                      Location
-                    </span>
-                    <span>{resolvedPromptRequest.location}</span>
-                  </div>
-                  <div>
-                    <span className="block text-xs font-semibold uppercase tracking-[0.18em] text-teal-700">
-                      Lead Count
-                    </span>
-                    <span>{resolvedPromptRequest.numberOfLeads}</span>
-                  </div>
-                </div>
-              ) : null}
-            </div>
-          )}
+              <div className="grid gap-4 sm:grid-cols-2">
+                <label className="grid gap-2">
+                  <span className="text-sm font-medium text-slate-700">Test Leads</span>
+                  <input
+                    type="number"
+                    min={1}
+                    max={15}
+                    step={1}
+                    className="rounded-2xl border border-slate-200 bg-white px-4 py-3 outline-none transition focus:border-teal-500 focus:ring-4 focus:ring-teal-100"
+                    value={formData.testLeadCount}
+                    onChange={(event) =>
+                      setFormData((current) => ({
+                        ...current,
+                        testLeadCount: Number(event.target.value || 1),
+                      }))
+                    }
+                    required
+                  />
+                  <span className="text-xs text-slate-500">
+                    Generate 1 to 15 leads for the test preview.
+                  </span>
+                </label>
 
-          <button
-            type="submit"
-            disabled={isPreviewLoading || isFullLoading}
-            className="inline-flex items-center justify-center gap-2 rounded-2xl bg-teal-700 px-5 py-3.5 font-semibold text-white transition hover:bg-teal-800 disabled:cursor-not-allowed disabled:bg-teal-400"
-          >
-            {isPreviewLoading ? <span className="spinner" aria-hidden="true" /> : null}
-            {isPreviewLoading ? "Generating Preview..." : "Generate Leads"}
-          </button>
+                <label className="grid gap-2">
+                  <span className="text-sm font-medium text-slate-700">Final Leads</span>
+                  <input
+                    type="number"
+                    min={1}
+                    max={15}
+                    step={1}
+                    className="rounded-2xl border border-slate-200 bg-white px-4 py-3 outline-none transition focus:border-teal-500 focus:ring-4 focus:ring-teal-100"
+                    value={formData.numberOfLeads}
+                    onChange={(event) =>
+                      setFormData((current) => ({
+                        ...current,
+                        numberOfLeads: Number(event.target.value || 1),
+                      }))
+                    }
+                    required
+                  />
+                  <span className="text-xs text-slate-500">
+                    Final generation is capped at 15 leads for now.
+                  </span>
+                </label>
+              </div>
+          </>
+
+          <div className="grid gap-3 sm:grid-cols-[1fr_auto]">
+            <button
+              type="submit"
+              disabled={isGenerating}
+              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-teal-700 px-5 py-3.5 font-semibold text-white transition hover:bg-teal-800 disabled:cursor-not-allowed disabled:bg-teal-400"
+            >
+              {isPreviewLoading ? <span className="spinner" aria-hidden="true" /> : null}
+              {isPreviewLoading ? "Generating Preview..." : "Generate Leads"}
+            </button>
+            {isGenerating ? (
+              <button
+                type="button"
+                onClick={handleStopGenerating}
+                className="inline-flex items-center justify-center rounded-2xl border border-rose-200 bg-rose-50 px-5 py-3.5 font-semibold text-rose-700 transition hover:bg-rose-100"
+              >
+                Stop Generating
+              </button>
+            ) : null}
+          </div>
         </form>
 
         {error ? (
@@ -441,6 +520,7 @@ export default function Form() {
             leads={previewLeads}
             isLoading={isPreviewLoading}
             isContinuing={isFullLoading}
+            testLeadCount={effectiveRequest.testLeadCount}
             onRegenerateNext={handleRegenerate}
             onContinue={handleContinue}
             canContinue={canContinue}
